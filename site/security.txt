@@ -1,4 +1,4 @@
 Contact: mailto:samudpokss@gmail.com
 Expires: 2027-10-12T00:00:00.000Z
 Preferred-Languages: th, en
-Canonical: https://samudpok.org/.well-known/security.txt
+Canonical: https://www.samudpok.org/.well-known/security.txt
