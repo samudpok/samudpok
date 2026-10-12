@@ -1,0 +1,1279 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="สมุดพก ส.ส. ติดตามคำสัญญาและการทำหน้าที่ในสภาของพรรคการเมืองและ ส.ส. ทุกคน ไม่แบ่งฝ่าย ทุกตัวเลขมีที่มา">
+<title>สมุดพก ส.ส.</title>
+<style>
+
+/* Layout: one phone-width report book. Ink is the only "color"; semantic flag hues live only on legal-status pills. */
+:root{
+  --canvas:#ECECE8; --card:#FFFFFF; --sunken:#E1E1DC; --hair:rgba(28,30,34,.11);
+  --ink:#1C1E22; --ink-2:#43474F; --ink-3:#5E626A;
+  --accent:#1C1E22; --accent-ink:#FFFFFF;
+  --f1-bg:#E4E4E1; --f1-ink:#3F4248;
+  --f2-bg:#F4E7B8; --f2-ink:#5E4700;
+  --f3-bg:#F6DCC4; --f3-ink:#7E3700;
+  --f4-bg:#F5D2CE; --f4-ink:#8E1A12;
+  --f0-bg:#DCEADC; --f0-ink:#22592C;
+  --lift:0 1px 2px rgba(30,32,36,.05),0 8px 20px -12px rgba(30,32,36,.20);
+  --lift-2:0 2px 6px rgba(30,32,36,.06),0 30px 60px -24px rgba(30,32,36,.32);
+  --font:"Anuphan","IBM Plex Sans Thai","Noto Sans Thai","Noto Sans Thai UI","Sukhumvit Set","Thonburi","Leelawadee UI","Tahoma",-apple-system,system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --canvas:#111214; --card:#1C1D20; --sunken:#2A2B2F; --hair:rgba(237,237,234,.12);
+    --ink:#EDEDEA; --ink-2:#C4C5C9; --ink-3:#A2A4AA;
+    --accent:#EDEDEA; --accent-ink:#111214;
+    --f1-bg:#2E2F33; --f1-ink:#D2D3D6;
+    --f2-bg:#3A3112; --f2-ink:#F2D977;
+    --f3-bg:#3E2614; --f3-ink:#F6B987;
+    --f4-bg:#421A1A; --f4-ink:#F5A69F;
+    --f0-bg:#1A3220; --f0-ink:#A3D6AB;
+    --lift:0 1px 2px rgba(0,0,0,.4),0 8px 18px -12px rgba(0,0,0,.6);
+    --lift-2:0 2px 8px rgba(0,0,0,.5),0 30px 60px -24px rgba(0,0,0,.7);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --canvas:#111214; --card:#1C1D20; --sunken:#2A2B2F; --hair:rgba(237,237,234,.12);
+  --ink:#EDEDEA; --ink-2:#C4C5C9; --ink-3:#A2A4AA;
+  --accent:#EDEDEA; --accent-ink:#111214;
+  --f1-bg:#2E2F33; --f1-ink:#D2D3D6;
+  --f2-bg:#3A3112; --f2-ink:#F2D977;
+  --f3-bg:#3E2614; --f3-ink:#F6B987;
+  --f4-bg:#421A1A; --f4-ink:#F5A69F;
+  --f0-bg:#1A3220; --f0-ink:#A3D6AB;
+  --lift:0 1px 2px rgba(0,0,0,.4),0 8px 18px -12px rgba(0,0,0,.6);
+  --lift-2:0 2px 8px rgba(0,0,0,.5),0 30px 60px -24px rgba(0,0,0,.7);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{height:100%}
+body{margin:0;min-height:100%;background:var(--canvas);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.stage{display:flex;justify-content:center;padding-block:24px;padding-inline:16px;min-height:100%}
+.phone{width:min(392px,100%);height:min(840px,calc(100vh - 48px));min-height:600px;background:var(--canvas);border-radius:44px;box-shadow:var(--lift-2);overflow:hidden;position:relative;display:flex;flex-direction:column}
+@media (max-width:480px){
+  html,body{height:100%}
+  .stage{padding:0;height:100%}
+  .phone{width:100%;height:100%;min-height:0;border-radius:0;box-shadow:none}
+}
+.screens{position:relative;flex:1 1 auto;min-height:0}
+.screen{position:absolute;inset:0;display:none;flex-direction:column}
+.screen.on{display:flex}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:56px;padding:8px 14px 4px 16px;flex:0 0 auto}
+.brand{font-weight:700;font-size:17px;letter-spacing:.01em}
+.asof{font-size:13px;color:var(--ink-2);background:var(--sunken);padding:3px 10px;border-radius:999px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.back{display:inline-flex;align-items:center;gap:2px;min-height:44px;min-width:44px;padding:0 10px 0 2px;border:0;background:none;font-size:17px;font-weight:600;cursor:pointer;border-radius:12px}
+.scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:4px 16px 36px}
+.eyebrow{font-size:14px;font-weight:600;color:var(--ink-2);margin:6px 0 0}
+.ltitle{font-size:30px;line-height:1.3;font-weight:700;margin:2px 0 6px;text-wrap:balance}
+.mtitle{font-size:24px;line-height:1.38;font-weight:700;margin:2px 0 8px;text-wrap:balance}
+.lead{font-size:17px;color:var(--ink-2);margin:0 0 18px}
+.meta{font-size:16px;color:var(--ink-2);margin:0}
+.sec{margin-top:30px}
+.sec-h{font-size:20px;font-weight:700;margin:0 0 2px}
+.sec-c{font-size:15px;color:var(--ink-2);margin:0 0 12px;line-height:1.55}
+.card{background:var(--card);border-radius:20px;box-shadow:var(--lift);padding:16px}
+.list{background:var(--card);border-radius:20px;box-shadow:var(--lift);overflow:hidden}
+.row{display:flex;align-items:center;gap:12px;width:100%;min-height:64px;padding:14px 14px 14px 16px;border:0;background:none;text-align:left;cursor:pointer}
+.row + .row{border-top:1px solid var(--hair)}
+.row-main{flex:1 1 auto;min-width:0}
+.row-t{font-size:17px;font-weight:600;line-height:1.45;margin:0}
+.row-s{font-size:15px;color:var(--ink-2);margin:2px 0 0;line-height:1.5}
+.chev{flex:0 0 auto;color:var(--ink-3)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;line-height:1.3;padding:5px 11px;border-radius:999px;background:var(--sunken);color:var(--ink-2);white-space:nowrap}
+.chip.wait{background:transparent;box-shadow:inset 0 0 0 1.5px var(--ink-3);color:var(--ink-2)}
+.chip.tag{background:var(--ink);color:var(--canvas)}
+.seat{height:6px;border-radius:3px;background:var(--sunken);margin-top:8px;overflow:hidden}
+.seat i{display:block;height:100%;background:var(--ink-2);border-radius:3px}
+.steps{display:flex;gap:3px;margin-top:8px}
+.steps i{flex:1;height:6px;border-radius:3px;background:var(--sunken)}
+.steps i.on{background:var(--ink)}
+.sample{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink);padding:9px 14px;border-radius:12px;margin:2px 0 10px;background:repeating-linear-gradient(-45deg,var(--sunken) 0 7px,var(--card) 7px 14px)}
+.sample span{background:var(--card);padding:1px 8px;border-radius:6px}
+.hatch{background:repeating-linear-gradient(-45deg,var(--sunken) 0 7px,transparent 7px 14px)}
+.note{border-radius:18px;padding:14px 16px;box-shadow:inset 0 0 0 1.5px var(--hair);background:transparent}
+.note-t{font-weight:700;margin:0 0 2px;font-size:17px}
+.note p{margin:0;color:var(--ink-2);font-size:15px;line-height:1.6}
+.dim{display:flex;gap:12px;align-items:flex-start;width:100%;padding:16px;border:0;background:none;text-align:left;cursor:pointer}
+.dim + .dim{border-top:1px solid var(--hair)}
+.dim-v{flex:0 0 auto;text-align:right;min-width:72px}
+.big{font-size:28px;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums}
+.big small{font-size:15px;font-weight:500;color:var(--ink-2)}
+.evl{display:inline-block;font-size:14px;font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-style:dotted;text-underline-offset:4px;margin-top:6px}
+.bar-track{height:8px;border-radius:4px;background:var(--sunken);overflow:hidden;margin-top:10px}
+.bar-track i{display:block;height:100%;background:var(--ink)}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:52px;border:0;border-radius:14px;background:var(--accent);color:var(--accent-ink);font-size:17px;font-weight:600;cursor:pointer;padding:0 18px}
+.tbtn{display:inline-flex;align-items:center;min-height:44px;border:0;background:none;padding:0 2px;font-size:16px;font-weight:600;text-decoration:underline;text-underline-offset:4px;cursor:pointer;color:var(--ink)}
+.lbl{display:block;font-size:15px;font-weight:600;color:var(--ink-2);margin:0 0 8px}
+.search{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:16px;box-shadow:var(--lift);min-height:58px;padding:0 6px 0 16px}
+.search input{flex:1 1 auto;min-width:0;border:0;background:transparent;font:inherit;font-size:17px;color:var(--ink);height:56px;outline:none}
+.search input::placeholder{color:var(--ink-3)}
+.search input::-webkit-search-cancel-button{-webkit-appearance:none;display:none}
+.search:focus-within{box-shadow:var(--lift),0 0 0 2px var(--ink)}
+.clear{width:44px;height:44px;border:0;background:none;border-radius:12px;cursor:pointer;color:var(--ink-2);display:flex;align-items:center;justify-content:center}
+.ladder{list-style:none;margin:0;padding:0}
+.lstep{display:flex;gap:14px;position:relative;padding-bottom:18px}
+.lstep:last-child{padding-bottom:0}
+.lstep::before{content:"";position:absolute;left:15px;top:32px;bottom:0;width:2px;background:var(--sunken)}
+.lstep:last-child::before{display:none}
+.lstep.done::before{background:var(--ink)}
+.lstep.now::before{background:var(--sunken)}
+.dot{flex:0 0 auto;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;background:var(--card);box-shadow:inset 0 0 0 2px var(--sunken);color:var(--ink-3);position:relative;z-index:1;font-variant-numeric:tabular-nums}
+.lstep.done .dot{background:var(--ink);color:var(--canvas);box-shadow:none}
+.lstep.now .dot{box-shadow:0 0 0 4px var(--sunken)}
+.lstep.wait .dot{box-shadow:inset 0 0 0 2px var(--ink-3);background:transparent;border:0}
+.lbody{flex:1 1 auto;min-width:0;padding-top:3px}
+.lname{font-weight:600;margin:0;line-height:1.45}
+.lsub{font-size:15px;color:var(--ink-2);margin:2px 0 0}
+.evbtn{display:block;width:100%;text-align:left;margin-top:8px;padding:10px 12px;border:0;border-radius:12px;background:var(--sunken);cursor:pointer;font-size:15px;line-height:1.5;min-height:44px}
+.evbtn b{display:block;font-weight:600}
+.evbtn span{color:var(--ink-2)}
+.status-hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.att{display:flex;height:14px;border-radius:7px;overflow:hidden;background:var(--sunken);margin:12px 0 14px}
+.att i{display:block;height:100%}
+.s1{background:var(--ink)} .s2{background:var(--ink-3)} .s3{background:repeating-linear-gradient(-45deg,var(--ink-3) 0 2px,var(--sunken) 2px 6px)}
+.leg{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:16px}
+.leg + .leg{border-top:1px solid var(--hair)}
+.sw{flex:0 0 auto;width:14px;height:14px;border-radius:4px}
+.leg .n{margin-left:auto;font-weight:700;font-variant-numeric:tabular-nums}
+.fpill{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:5px 12px 5px 6px;border-radius:999px;line-height:1.3}
+.fpill .lv{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--card);font-size:13px}
+.F1{background:var(--f1-bg);color:var(--f1-ink)} .F2{background:var(--f2-bg);color:var(--f2-ink)} .F3{background:var(--f3-bg);color:var(--f3-ink)} .F4{background:var(--f4-bg);color:var(--f4-ink)} .F0{background:var(--f0-bg);color:var(--f0-ink)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:12px 0 0;font-size:15px}
+.kv dt{color:var(--ink-2)} .kv dd{margin:0;font-weight:500;min-width:0}
+.presume{margin-top:14px;padding:12px 14px;border-radius:12px;background:var(--sunken);font-size:15px;line-height:1.6;font-weight:500}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 10px;margin:0 -2px}
+.fchip{flex:0 0 auto;min-height:44px;padding:0 16px;border-radius:999px;border:0;background:var(--card);box-shadow:inset 0 0 0 1.5px var(--hair);font-size:15px;font-weight:500;cursor:pointer;white-space:nowrap}
+.fchip[aria-pressed="true"]{background:var(--ink);color:var(--canvas);box-shadow:none;font-weight:600}
+.reply{border-radius:18px;padding:14px 16px;background:var(--card);box-shadow:inset 0 0 0 1.5px var(--hair)}
+.reply-h{display:flex;align-items:center;justify-content:space-between;gap:8px;font-weight:700;font-size:16px}
+.reply p{margin:6px 0 0;font-size:15px;color:var(--ink-2);line-height:1.6}
+.foot{margin-top:36px;padding-top:16px;border-top:1px solid var(--hair);font-size:13px;color:var(--ink-2);line-height:1.7}
+.foot p{margin:0 0 4px}
+.tabs{flex:0 0 auto;display:flex;border-top:1px solid var(--hair);background:var(--card);padding-bottom:env(safe-area-inset-bottom,0px)}
+.tab{flex:1;min-height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:0;background:none;color:var(--ink-3);font-size:13px;font-weight:500;cursor:pointer}
+.tab[aria-selected="true"]{color:var(--ink);font-weight:700}
+.tab[aria-selected="true"] svg{stroke-width:2.3}
+.mrow{display:block;width:100%;text-align:left;border:0;background:none;padding:14px 16px;cursor:pointer}
+.mrow + .mrow{border-top:1px solid var(--hair)}
+.mtable{width:100%;border-collapse:collapse;font-size:15px}
+.mtable td{padding:9px 0;border-top:1px solid var(--hair);vertical-align:top}
+.mtable tr:first-child td{border-top:0}
+.mtable td:first-child{width:40px;font-weight:700;font-variant-numeric:tabular-nums}
+.mtable td:last-child{text-align:right;font-weight:600;white-space:nowrap;padding-left:10px;font-variant-numeric:tabular-nums}
+.mlist{margin:6px 0 0;padding-left:20px;font-size:15px;line-height:1.65;color:var(--ink-2)}
+.mlist li{margin:3px 0}
+.mp{margin:6px 0 0;font-size:15px;color:var(--ink-2);line-height:1.65}
+.stack{display:flex;flex-direction:column;gap:12px}
+.sheet-wrap{position:absolute;inset:0;z-index:20;display:none}
+.sheet-wrap.on{display:block}
+.scrim{position:absolute;inset:0;background:rgba(10,11,13,.42);border:0;width:100%;cursor:pointer}
+.sheet{position:absolute;left:0;right:0;bottom:0;max-height:86%;overflow-y:auto;background:var(--card);border-radius:24px 24px 0 0;padding:10px 18px calc(22px + env(safe-area-inset-bottom,0px));box-shadow:var(--lift-2);animation:up .24s ease-out}
+@keyframes up{from{transform:translateY(24px);opacity:.4}to{transform:none;opacity:1}}
+.grab{width:40px;height:5px;border-radius:3px;background:var(--sunken);margin:0 auto 12px}
+.sheet h3{font-size:22px;line-height:1.4;margin:2px 0 6px}
+.sheet .lead{margin-bottom:12px}
+.sval{font-size:34px;font-weight:700;line-height:1.2;margin:4px 0 10px;font-variant-numeric:tabular-nums}
+.range{margin:14px 0}
+.range label{display:flex;justify-content:space-between;font-size:16px;font-weight:600}
+.range label span{font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.range input{width:100%;accent-color:var(--ink);height:44px}
+.result{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:14px 16px;border-radius:16px;background:var(--sunken);margin:8px 0 12px}
+.toast{position:absolute;left:16px;right:16px;bottom:84px;background:var(--ink);color:var(--canvas);padding:12px 18px;border-radius:16px;font-size:15px;line-height:1.5;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;transform:translateY(8px);z-index:30;text-align:center}
+.toast.show{opacity:1;transform:none}
+.empty{text-align:center;padding:22px 16px}
+.empty p{margin:4px 0 0;color:var(--ink-2);font-size:15px}
+.gap8{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.radar{display:block;width:100%;height:auto;margin:4px 0 0;font-family:var(--font)}
+.radar text{font-size:13.5px}
+.rleg{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--ink-2);margin:6px 0 0}
+.rleg span{display:inline-flex;align-items:center;gap:8px}
+.rleg i{display:inline-block;width:18px;height:10px;border-radius:3px;background:color-mix(in srgb,var(--ink) 16%,transparent);box-shadow:inset 0 0 0 2px var(--ink)}
+.rleg i.dash{height:0;border-radius:0;background:none;box-shadow:none;border-top:2px dashed var(--ink-2)}
+.rleg i.dot{height:0;border-radius:0;background:none;box-shadow:none;border-top:3px dotted var(--ink)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{display:flex;flex-direction:column;align-items:flex-start;gap:0;min-width:0;padding:12px 12px 10px;border:0;border-radius:20px;background:var(--card);box-shadow:var(--lift);text-align:left;cursor:pointer}
+.tile-t{font-size:16px;font-weight:700;line-height:1.4}
+.tile-s{font-size:13px;color:var(--ink-2);line-height:1.4}
+.tile .radar{margin:4px 0}
+.card > .radar-sm{max-width:170px;margin:10px auto 0}
+.rleg i.na{background:repeating-linear-gradient(-45deg,var(--ink-3) 0 1.5px,var(--sunken) 1.5px 5px);box-shadow:none}
+.cap{margin:12px 0 0;padding:10px 12px;border-radius:12px;background:var(--sunken);font-size:15px;font-weight:600;line-height:1.55}
+.vrow{display:flex;align-items:center;gap:12px;width:100%;min-height:60px;padding:12px 14px 12px 16px;border:0;background:none;text-align:left;cursor:pointer}
+.vrow + .vrow{border-top:1px solid var(--hair)}
+.vrow .big{font-size:24px;white-space:nowrap}
+.vrow.na .big{font-size:15px;font-weight:600;color:var(--ink-3)}
+.abar{position:relative;height:10px;border-radius:5px;background:var(--sunken);margin:12px 0 6px}
+.abar i{display:block;height:100%;border-radius:5px;background:var(--ink)}
+.abar b{position:absolute;top:-6px;bottom:-6px;width:2px;margin-left:-1px;background:var(--ink-2);box-shadow:0 0 0 1.5px var(--card);border-radius:1px}
+.abar.hatch{background:repeating-linear-gradient(-45deg,var(--sunken) 0 6px,transparent 6px 12px);box-shadow:inset 0 0 0 1px var(--hair)}
+.pct{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.hl{display:inline-block;width:2px;height:16px;background:var(--ink-2);vertical-align:-3px;margin-right:8px;border-radius:1px}
+.formula{margin:10px 0 4px;padding:12px 14px;border-radius:12px;background:var(--sunken);font-size:15px;line-height:1.7;font-weight:600}
+.fact{padding:14px 16px}
+.fact + .fact{border-top:1px solid var(--hair)}
+.fact-l{font-size:14px;font-weight:600;color:var(--ink-2);margin:0}
+.fact-v{font-size:17px;font-weight:600;margin:2px 0 0;line-height:1.5}
+a.tbtn{text-decoration:underline}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+[hidden]{display:none!important}
+.fx{flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:12px 14px;background:repeating-linear-gradient(-45deg,var(--ink) 0 10px,var(--ink-2) 10px 20px);z-index:40}
+.fx span{background:var(--card);color:var(--ink);font-size:16px;font-weight:700;line-height:1.45;text-align:center;padding:6px 12px;border-radius:10px}
+.flink{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.chip.few{background:transparent;box-shadow:inset 0 0 0 1.5px var(--ink-3);font-size:12px;padding:2px 8px;color:var(--ink-2)}
+.lchart{display:block;width:100%;height:auto;margin:6px 0;font-family:var(--font)}
+.tile .lchart{margin:6px 0 0}
+.ttable td:first-child{width:auto;white-space:nowrap;font-weight:600}
+.ttable td:nth-child(2){font-weight:400;color:var(--ink-2);text-align:left;padding-left:10px}
+.tscroll{overflow-x:auto;background:var(--card);border-radius:20px;box-shadow:var(--lift);-webkit-overflow-scrolling:touch}
+.dtable{border-collapse:collapse;font-size:14px;min-width:100%;white-space:nowrap}
+.dtable th,.dtable td{padding:10px 12px;text-align:right;border-top:1px solid var(--hair);font-variant-numeric:tabular-nums;vertical-align:top}
+.dtable thead th{border-top:0;color:var(--ink-2);font-weight:600}
+.dtable th:first-child,.dtable td:first-child{text-align:left;position:sticky;left:0;background:var(--card)}
+.leg small{font-size:13px}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="phone" id="phone">
+    <div class="fx" id="fxBanner" role="alert" hidden><span>ข้อมูลทดสอบสมมติ — ไม่ใช่ข้อมูลจริง<br>ห้ามเผยแพร่</span></div>
+    <div class="screens">
+      <section class="screen on" id="s-home" aria-label="หน้าแรก"></section>
+      <section class="screen" id="s-month" aria-label="รายเดือน"></section>
+      <section class="screen" id="s-method" aria-label="วิธีคิดคะแนน"></section>
+      <section class="screen" id="s-party" aria-label="สมุดพกพรรค"></section>
+      <section class="screen" id="s-promise" aria-label="รายละเอียดคำสัญญา"></section>
+      <section class="screen" id="s-mp" aria-label="สมุดพก ส.ส."></section>
+      <section class="screen" id="s-att" aria-label="การทำหน้าที่ในสภา ทุกพรรค"></section>
+      <section class="screen" id="s-house" aria-label="ภาพรวมทั้งสภา"></section>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="เมนูหลัก">
+      <button class="tab" role="tab" data-tab="home" aria-selected="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>
+        หน้าแรก
+      </button>
+      <button class="tab" role="tab" data-tab="month" aria-selected="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M5 16l4-5 4 3 6-8"/></svg>
+        รายเดือน
+      </button>
+      <button class="tab" role="tab" data-tab="method" aria-selected="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5M8 7.5h8M8 11h6"/></svg>
+        วิธีคิดคะแนน
+      </button>
+    </nav>
+    <div class="sheet-wrap" id="sheetWrap" aria-hidden="true">
+      <button class="scrim" id="scrim" aria-label="ปิด"></button>
+      <div class="sheet" id="sheet" role="dialog" aria-modal="true"></div>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+</div>
+<script type="application/json" id="samudpok-data">/*__SAMUDPOK_DATA__*/null</script>
+<script>
+(function(){
+'use strict';
+
+/* =====================================================================
+   DATA — embedded by scripts/build.mjs. Any part may be null: then the
+   page shows its waiting state and never invents a number.
+   ===================================================================== */
+var D = null;
+try { D = JSON.parse(document.getElementById('samudpok-data').textContent); } catch (e) { D = null; }
+if (!D || typeof D !== 'object') D = {};
+var SRC = D.source || null, HOUSE = D.house || null, FIX = D.fixture === true;
+var RP = Array.isArray(D.parties) ? D.parties.filter(function(p){ return p && typeof p.name === 'string'; }) : [];
+var RM = Array.isArray(D.mps) ? D.mps.filter(function(m){ return m && m.id != null && typeof m.name === 'string'; }) : [];
+var BYM = Array.isArray(D.byMonth) ? D.byMonth : [], BYY = Array.isArray(D.byYear) ? D.byYear : [], HIST = Array.isArray(D.history) ? D.history : [];
+var LADDER = (D.statusLadder && typeof D.statusLadder === 'object') ? D.statusLadder : {'0':'ยังไม่เริ่ม','25':'เริ่มแล้ว','50':'กำลังดำเนินการ','75':'สำเร็จบางส่วน','100':'สำเร็จ'};
+var LV = [0,25,50,75,100];
+
+/* ---------- helpers ---------- */
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function isNum(v){ return typeof v === 'number' && isFinite(v); }
+function fmt(n){ return isNum(n) ? String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '—'; }
+function p1(v){ return isNum(v) ? (Math.round(v * 10) / 10).toFixed(1) : '—'; }
+function safeUrl(u){ return (typeof u === 'string' && /^https:\/\/[^\s"'<>\\]+$/i.test(u)) ? u : null; }
+function extLink(u, label, cls){ var s = safeUrl(u); if (!s) return ''; return '<a class="'+(cls || 'tbtn')+'" href="'+esc(s)+'" target="_blank" rel="noopener noreferrer">'+esc(label)+'</a>'; }
+function own(o, k){ return o != null && typeof o === 'object' && Object.prototype.hasOwnProperty.call(o, k); }
+function ladderName(v){ var x = own(LADDER, String(v)) ? LADDER[String(v)] : null; return x != null ? String(x) : String(v); }
+var TM = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+/* Thai Buddhist-calendar date; timestamps shown in Bangkok time */
+function thDate(s){
+  if (typeof s !== 'string' || !s) return null;
+  var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s), y, mo, d;
+  if (m) { y = +m[1]; mo = +m[2]; d = +m[3]; }
+  else { var t = Date.parse(s); if (isNaN(t)) return null; var b = new Date(t + 7 * 3600e3); y = b.getUTCFullYear(); mo = b.getUTCMonth() + 1; d = b.getUTCDate(); }
+  if (mo < 1 || mo > 12) return null;
+  return d + ' ' + TM[mo - 1] + ' ' + (y + 543);
+}
+function thPeriod(p){ var m = /^(\d{4})(?:-(\d{2}))?$/.exec(String(p || '')); if (!m) return esc(p); return (m[2] ? TM[+m[2] - 1] + ' ' : '') + (+m[1] + 543); }
+function median(xs){ var a = xs.filter(isNum).sort(function(p, q){ return p - q; }); if (!a.length) return null; var k = Math.floor(a.length / 2); return a.length % 2 ? a[k] : Math.round((a[k - 1] + a[k]) / 2 * 10) / 10; }
+/* party median MP vote rate: same party, excluding presiding officers and ministers */
+var PMED = Object.create(null);
+function partyMed(name){
+  if (!Object.prototype.hasOwnProperty.call(PMED, name)) PMED[name] = median(RM.filter(function(m){ return m.party === name && !m.presiding && !m.minister && m.att && m.att.eligible > 0; }).map(function(m){ return m.att.rate; }));
+  return PMED[name];
+}
+var HMED = HOUSE && isNum(HOUSE.medianMpRate) ? HOUSE.medianMpRate : null;
+var HRATE = HOUSE && isNum(HOUSE.rate) ? HOUSE.rate : null;
+var EVC = Object.create(null); BYM.forEach(function(x){ if (x && x.period) EVC[x.period] = x.eventCount; });
+var FEW = 3; /* months with fewer votes than this are marked ข้อมูลน้อย */
+function partyByName(n){ for (var i = 0; i < RP.length; i++) if (RP[i].name === n) return RP[i]; return null; }
+function mpById(id){ for (var i = 0; i < RM.length; i++) if (String(RM[i].id) === id) return RM[i]; return null; }
+
+var ASOF = SRC && thDate(SRC.lastDate) ? 'ข้อมูล ณ ' + thDate(SRC.lastDate) : 'รอนำเข้าข้อมูล';
+var CHEV = '<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>';
+var BACKI = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>';
+var SEARCHI = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="color:var(--ink-3);flex:0 0 auto"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>';
+var XI = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+
+/* ---------- evidence registry: every number on screen points here ---------- */
+var EV = {}, evn = 0;
+function ev(o){ var k = 'e' + (evn++); EV[k] = o; return k; }
+
+var GOV_DIMS = [
+  {n:'ทำตามสัญญา', d:'คำสัญญาที่ติดตาม ไปถึงขั้นไหนแล้ว', k:'promise'},
+  {n:'พูดกับโหวตตรงกัน', d:'ลงมติในสภาตรงกับที่หาเสียงไว้หรือไม่'},
+  {n:'การใช้งบตามนโยบาย', d:'เบิกจ่ายจริงเทียบกับงบที่ตั้งไว้ให้คำสัญญา'},
+  {n:'การตอบกระทู้สภา', d:'รัฐมนตรีของพรรคมาตอบกระทู้ที่ถูกถาม'},
+  {n:'การทำหน้าที่ในสภา', d:'ส.ส. ทั้งพรรคมาลงมติกี่เปอร์เซ็นต์ของครั้งที่ควรลง', k:'att'}
+];
+var OPP_DIMS = [
+  {n:'การตรวจสอบ', d:'ตั้งกระทู้ อภิปราย และยื่นตรวจสอบรัฐบาล'},
+  {n:'การเสนอทางเลือก', d:'ร่างกฎหมายที่พรรคเสนอเข้าสภา'},
+  {n:'งานกรรมาธิการ', d:'การเข้าร่วมและผลงานในคณะกรรมาธิการ'},
+  {n:'ผลักดันคำสัญญาของตัวเอง', d:'คำสัญญาที่ติดตาม ถูกผลักดันไปถึงไหน', k:'promise'},
+  {n:'พูดกับโหวตตรงกัน', d:'ลงมติในสภาตรงกับที่หาเสียงไว้หรือไม่'},
+  {n:'การทำหน้าที่ในสภา', d:'ส.ส. ทั้งพรรคมาลงมติกี่เปอร์เซ็นต์ของครั้งที่ควรลง', k:'att'}
+];
+var SIDE = {gov:'ฝ่ายรัฐบาล', opp:'ฝ่ายค้าน', none:'ไม่อยู่ฝ่ายใด'};
+function sideName(k){ return typeof k === 'string' && own(SIDE, k) ? SIDE[k] : ''; }
+var STEP = LV.map(function(v){ return {n:ladderName(v), s:v}; });
+var ECT_DOC = 'เอกสารนโยบายที่พรรคยื่น กกต. (มาตรา 57)';
+var FLAG_SRC = 'นโยบายหาเสียงหลัก (ไม่อยู่ในเอกสาร กกต.)';
+var VOTE_SRC = 'บันทึกการลงมติ จาก Politigraph โดย WeVis';
+var PRESIDE_NOTE = 'ประธาน/รองประธานสภา — ตามธรรมเนียมไม่ลงมติ จึงไม่เทียบอัตราการลงมติ';
+var ABSENT_NOTE = 'แหล่งข้อมูลยังแยกการลาไม่ได้';
+var NACC = 'https://www.nacc.go.th';
+var REPORT_TO = 'samudpokss@gmail.com';
+function reportLink(name){
+  var body = 'หน้า: ' + name + '\nข้อมูลที่คิดว่าผิด:\nข้อมูลที่ถูกต้องและแหล่งอ้างอิง (ถ้ามี):\n';
+  return '<a class="tbtn" style="margin-top:14px" href="mailto:'+REPORT_TO+'?subject='+encodeURIComponent('แจ้งข้อผิดพลาด: ' + name)+'&amp;body='+encodeURIComponent(body)+'">แจ้งข้อผิดพลาดทางอีเมล</a>';
+}
+
+/* =====================================================================
+   SAMPLE (fictional) — used only on the striped "วิธีอ่าน" demo pages
+   ===================================================================== */
+var SP = {
+  id:'sample', sample:true, name:'พรรคตัวอย่าง', seats:150, side:'gov',
+  dims:[
+    {v:46, u:'/100', sub:'เฉลี่ยจากคำสัญญา 12 ข้อ', src:'คำนวณจากสถานะคำสัญญาทั้ง 12 ข้อในหน้านี้', ref:'ดูรายการคำสัญญาด้านล่าง'},
+    {v:86, u:'%', sub:'ตรงกัน 18 จาก 21 มติที่เกี่ยวกับคำสัญญา', src:VOTE_SRC, ref:'มติที่เกี่ยวข้อง 21 รายการ (สมมติ)'},
+    {v:38, u:'%', sub:'เบิกจ่ายแล้ว 38% ของงบที่ตั้งไว้', src:'รายงานผลการเบิกจ่าย กรมบัญชีกลาง', ref:'รายงานประจำเดือน ก.ย. 2569 (สมมติ)'},
+    {v:65, u:'%', sub:'ตอบแล้ว 41 จาก 63 กระทู้', src:'บันทึกการประชุมสภาผู้แทนราษฎร', ref:'กระทู้ถามสดและกระทู้ทั่วไป 63 เรื่อง (สมมติ)'}
+  ],
+  mpMed:[90,56,54,52,60],
+  att:{cast:29410, elig:34500, leave:1140, walk:1200, walkVotes:8, mps:150, votes:230},
+  outcome:'ครัวเรือนที่ได้รับเงินซ่อมบ้านแล้ว 41,200 หลังคาเรือน',
+  promises:[
+    {t:'ศูนย์ดูแลเด็กเล็กครบทุกตำบล', c:'3,800 ล้านบาทต่อปี', p:7, st:4},
+    {t:'ลดภาษีที่ดินให้เกษตรกรรายย่อยครึ่งหนึ่ง', c:'1,200 ล้านบาทต่อปี', p:9, st:3},
+    {t:'กองทุนซ่อมบ้านผู้สูงอายุ หลังละ 30,000 บาท', c:'4,200 ล้านบาทต่อปี', p:11, st:3, tag:'ปรับลด', tagd:'สัญญาไว้หลังละ 30,000 บาท แต่ระเบียบที่ประกาศจริงกำหนดหลังละไม่เกิน 20,000 บาท'},
+    {t:'นัดหมอออนไลน์ได้ทุกโรงพยาบาลรัฐ', c:'900 ล้านบาทต่อปี', p:13, st:3},
+    {t:'น้ำประปาดื่มได้ครบทุกอำเภอ', c:'6,500 ล้านบาท ตลอด 4 ปี', p:14, st:2},
+    {t:'ลดขั้นตอนขออนุญาตเปิดร้านค้ารายย่อยเหลือ 7 วัน', c:'ไม่ใช้งบประมาณ', p:15, st:2},
+    {t:'ทุนเรียนต่อสายอาชีพ 10,000 ทุนต่อปี', c:'800 ล้านบาทต่อปี', p:16, st:2},
+    {t:'รถเมล์ไฟฟ้าในเมืองรอง 12 จังหวัด', c:'9,600 ล้านบาท ตลอด 4 ปี', p:18, st:1},
+    {t:'ตลาดกลางสินค้าเกษตรออนไลน์ของรัฐ', c:'350 ล้านบาทต่อปี', p:19, st:1},
+    {t:'ลดค่าธรรมเนียมโอนบ้านหลังแรกเหลือ 0.01%', c:'2,100 ล้านบาทต่อปี', p:20, st:1},
+    {t:'ประกันรายได้ขั้นต่ำสำหรับคนทำงานอิสระ', c:'14,000 ล้านบาทต่อปี', p:22, st:0},
+    {t:'สนามกีฬามาตรฐานประจำทุกตำบล', c:'5,000 ล้านบาท ตลอด 4 ปี', p:24, st:0, tag:'กลับลำ/ยกเลิก', tagd:'มติ ครม. วันที่ 2 ก.ย. 2569 ให้ยกเลิกโครงการ และโอนงบไปใช้ด้านอื่น'}
+  ],
+  reply:'พรรคชี้แจงว่าการปรับวงเงินซ่อมบ้านเหลือหลังละ 20,000 บาท เพื่อให้ครอบคลุมจำนวนครัวเรือนได้มากขึ้นภายใต้งบเดิม'
+};
+var HOUSE_SAMPLE = {cast:94160, elig:115000, leave:4600, walk:3400, mps:500, votes:230};
+function attDen(o){ return o.elig - o.leave - o.walk; }
+function attPct(o){ return Math.round(o.cast / attDen(o) * 1000) / 10; }
+SP.dims.push({v:attPct(SP.att), u:'%', sub:'ลงมติ '+fmt(SP.att.cast)+' จาก '+fmt(attDen(SP.att))+' ครั้งที่นับ · ทั้งสภา '+p1(attPct(HOUSE_SAMPLE))+'%', src:VOTE_SRC, ref:'รวม ส.ส. '+SP.att.mps+' คน · '+SP.att.votes+' มติ (สมมติ)'});
+
+/* five fixed radar axes, same order for every MP */
+var AXES = [
+  {k:'rate', n:'การทำหน้าที่ในสภา', l:['การทำหน้าที่ในสภา'], d:'ร้อยละของมติที่มาลงคะแนน'},
+  {k:'bills', n:'การเสนอกฎหมาย', l:['การเสนอ','กฎหมาย'], u:'ฉบับ', d:'ร่างกฎหมายที่เป็นผู้เสนอ'},
+  {k:'q', n:'กระทู้และญัตติ', l:['กระทู้','และญัตติ'], u:'เรื่อง', d:'กระทู้ถามและญัตติที่ยื่น'},
+  {k:'com', n:'งานกรรมาธิการ', l:['งาน','กรรมาธิการ'], u:'แต้ม', d:'จำนวนคณะกรรมาธิการที่เป็นสมาชิก และบทบาท (ประธาน/รองประธาน/เลขานุการ ได้น้ำหนักเพิ่ม)'},
+  {k:'deb', n:'การอภิปรายในสภา', l:['การอภิปราย','ในสภา'], u:'ครั้ง', d:'ครั้งที่อภิปรายในที่ประชุมสภา'}
+];
+var HOUSE_RATE_MED = 88;
+var HOUSE_MED = {bills:0.4, q:1.1, com:2, deb:1.4};
+var COM_W = {member:1, role:2};
+
+var MPS = [
+  {id:'mpA', name:'นายสมมติ ทดลองดี', area:'จังหวัดสมมติ เขต 3', party:'พรรคตัวอย่าง',
+   att:{vote:198, idle:6, absent:13, leave:5, walk:8}, median:88, diff:4,
+   diffs:[
+     {t:'ร่าง พ.ร.บ.ตัวอย่างว่าด้วยการจัดการขยะชุมชน วาระที่ 1', me:'เห็นด้วย', party:'ไม่เห็นด้วย', d:'14 ส.ค. 2569'},
+     {t:'ญัตติตัวอย่างขอให้ศึกษาการย้ายสนามบินภูมิภาค', me:'งดออกเสียง', party:'เห็นด้วย', d:'30 ก.ค. 2569'},
+     {t:'ร่าง พ.ร.บ.ตัวอย่างว่าด้วยภาษีเครื่องดื่ม มาตรา 6', me:'ไม่เห็นด้วย', party:'เห็นด้วย', d:'9 ก.ค. 2569'},
+     {t:'ญัตติตัวอย่างตั้งกรรมาธิการศึกษาราคาพืชผล', me:'เห็นด้วย', party:'ไม่เห็นด้วย', d:'18 มิ.ย. 2569'}
+   ],
+   flags:[
+     {lv:2, cat:'ทรัพย์สิน', t:'ถูกกล่าวหาว่ายื่นบัญชีแสดงรายการทรัพย์สินและหนี้สินไม่ครบถ้วน', agency:'สำนักงาน ป.ป.ช.', stage:'ป.ป.ช. มีมติชี้มูลและส่งเรื่องให้ศาลฎีกาพิจารณา', date:'3 ก.ย. 2569', final:false, src:'ประกาศสำนักงาน ป.ป.ช. ที่ 412/2569 (สมมติ)', reply:'เจ้าตัวชี้แจงว่าเป็นการกรอกแบบฟอร์มผิดช่อง และได้ยื่นเอกสารเพิ่มเติมแล้ว'},
+     {lv:0, cat:'การเลือกตั้ง', t:'ถูกร้องเรียนว่าแจกสิ่งของระหว่างหาเสียง', agency:'สำนักงาน กกต.', stage:'กกต. มีมติยกคำร้อง เนื่องจากหลักฐานไม่เพียงพอ', date:'20 พ.ค. 2569', final:true, src:'มติ กกต. ครั้งที่ 18/2569 (สมมติ)'}
+   ],
+   months:8, work:{bills:6, q:13, deb:22}, com:{n:2, roles:['รองประธาน']}, pc:{bills:76, q:62, com:71, deb:83},
+   minister:null, assets:{ok:true, d:'ยื่นภายในกำหนด เมื่อ 2 เม.ย. 2569'}, moves:['ม.ค. 2569 · ย้ายจากพรรคทดลองเดิม มาพรรคตัวอย่าง']},
+  {id:'mpB', name:'นางสาวตัวอย่าง รักถิ่น', area:'แบบบัญชีรายชื่อ', party:'พรรคตัวอย่าง',
+   att:{vote:210, idle:4, absent:6, leave:2, walk:8}, median:88, diff:0, diffs:[], flags:[],
+   months:5, joined:'เข้ารับตำแหน่งแทนตำแหน่งที่ว่าง พ.ค. 2569', work:{bills:2, q:9, deb:6}, com:{n:2, roles:['ประธาน']}, pc:{bills:50, q:66, com:71, deb:44},
+   minister:null, assets:{ok:true, d:'ยื่นภายในกำหนด เมื่อ 28 มี.ค. 2569'}, moves:[]},
+  {id:'mpC', name:'นายตัวอย่าง บริหารดี', area:'จังหวัดสมมติ เขต 1', party:'พรรคตัวอย่าง',
+   att:{vote:172, idle:3, absent:41, leave:6, walk:8}, median:88, diff:0, diffs:[], flags:[],
+   months:8, work:{bills:0, q:0, deb:35}, com:null, pc:{bills:18, q:null, com:null, deb:92},
+   minister:'รัฐมนตรีว่าการกระทรวงตัวอย่าง ตั้งแต่ 20 มี.ค. 2569', assets:{ok:false, d:'ยื่นช้ากว่ากำหนด 9 วัน เมื่อ 18 เม.ย. 2569'}, moves:[]}
+];
+function sampleMp(id){ for (var i = 0; i < MPS.length; i++) if (MPS[i].id === id) return MPS[i]; return null; }
+
+var FLV = [
+  {k:'F0', n:'ปิดคดี', d:'เรื่องจบแล้ว ย้ายไปอยู่ในประวัติ'},
+  {k:'F1', n:'อยู่ระหว่างไต่สวน', d:'หน่วยงานรับเรื่องและกำลังตรวจสอบ'},
+  {k:'F2', n:'ถูกชี้มูลหรือยื่นศาล', d:'หน่วยงานเห็นว่ามีมูล และส่งต่อให้ศาล'},
+  {k:'F3', n:'ศาลรับคดี', d:'ศาลรับไว้พิจารณาแล้ว ยังไม่มีคำพิพากษา'},
+  {k:'F4', n:'มีคำพิพากษาว่าผิด', d:'ระบุเสมอว่าคดีถึงที่สุดแล้วหรือยัง'}
+];
+var PRESUME = 'ผู้ถูกกล่าวหายังได้รับการสันนิษฐานว่าบริสุทธิ์จนกว่าคดีถึงที่สุด';
+var PROVINCES = 'กรุงเทพมหานคร กระบี่ กาญจนบุรี กาฬสินธุ์ กำแพงเพชร ขอนแก่น จันทบุรี ฉะเชิงเทรา ชลบุรี ชัยนาท ชัยภูมิ ชุมพร เชียงราย เชียงใหม่ ตรัง ตราด ตาก นครนายก นครปฐม นครพนม นครราชสีมา นครศรีธรรมราช นครสวรรค์ นนทบุรี นราธิวาส น่าน บึงกาฬ บุรีรัมย์ ปทุมธานี ประจวบคีรีขันธ์ ปราจีนบุรี ปัตตานี พระนครศรีอยุธยา พะเยา พังงา พัทลุง พิจิตร พิษณุโลก เพชรบุรี เพชรบูรณ์ แพร่ ภูเก็ต มหาสารคาม มุกดาหาร แม่ฮ่องสอน ยโสธร ยะลา ร้อยเอ็ด ระนอง ระยอง ราชบุรี ลพบุรี ลำปาง ลำพูน เลย ศรีสะเกษ สกลนคร สงขลา สตูล สมุทรปราการ สมุทรสงคราม สมุทรสาคร สระแก้ว สระบุรี สิงห์บุรี สุโขทัย สุพรรณบุรี สุราษฎร์ธานี สุรินทร์ หนองคาย หนองบัวลำภู อ่างทอง อำนาจเจริญ อุดรธานี อุตรดิตถ์ อุทัยธานี อุบลราชธานี'.split(' ');
+
+/* =====================================================================
+   SHARED FRAGMENTS
+   ===================================================================== */
+function bar(back){
+  return '<header class="bar">' + (back ? '<button class="back" data-back aria-label="กลับ">'+BACKI+'กลับ</button>' : '<span class="brand">สมุดพก ส.ส.</span>') + '<span class="asof">'+esc(ASOF)+'</span></header>';
+}
+function foot(){
+  var h = '<footer class="foot">';
+  h += '<p>ข้อมูลการลงมติ: ' + (extLink((SRC && SRC.url) || 'https://politigraph.wevis.info', 'Politigraph โดย WeVis', 'flink')) + ' (' + esc((SRC && SRC.license) || 'CC BY-NC 4.0') + ')</p>';
+  if (SRC) {
+    h += '<p>ดึงข้อมูลเมื่อ ' + esc(thDate(SRC.fetchedAt) || 'ไม่ระบุ') + ' · แหล่งข้อมูลอัปเดตเมื่อ ' + esc(thDate(SRC.scrapedAt) || 'ไม่ระบุ') + '</p>';
+    if (isNum(SRC.eventCount)) h += '<p>ครอบคลุมการลงมติ ' + fmt(SRC.eventCount) + ' ครั้ง' + (thDate(SRC.firstDate) && thDate(SRC.lastDate) ? ' ระหว่าง ' + thDate(SRC.firstDate) + ' ถึง ' + thDate(SRC.lastDate) : '') + '</p>';
+    if (isNum(SRC.unmatchedVotes) && SRC.unmatchedVotes > 0) h += '<p>มีเสียงที่จับคู่กับรายชื่อ ส.ส. ไม่ได้ ' + fmt(SRC.unmatchedVotes) + ' เสียง จึงไม่นำมานับ</p>';
+  } else h += '<p>รอนำเข้าข้อมูลการลงมติ</p>';
+  h += '<p>ใช้เพื่อประโยชน์สาธารณะ ไม่ใช่เชิงพาณิชย์ ตามเงื่อนไขสัญญาอนุญาตของแหล่งข้อมูล · ไม่มีโฆษณา ไม่ติดตามผู้ใช้ และไม่ต้องล็อกอิน</p>';
+  if (thDate(D.builtAt)) h += '<p>สร้างหน้านี้เมื่อ ' + thDate(D.builtAt) + '</p>';
+  return h + '</footer>';
+}
+function sampleStripe(){ return '<div class="sample" role="note"><span>ตัวอย่าง</span>ข้อมูลสมมติ ไม่ใช่พรรคหรือบุคคลจริง</div>'; }
+function steps(st){ var h = '<div class="steps" aria-hidden="true">'; for (var i = 1; i <= 4; i++) h += '<i class="'+(i <= st ? 'on' : '')+'"></i>'; return h + '</div>'; }
+function fpill(lv){ var f = FLV[lv]; return '<span class="fpill '+f.k+'"><span class="lv">'+(lv === 0 ? '✓' : lv)+'</span>'+(lv === 0 ? '' : 'ระดับ '+lv+' · ')+f.n+'</span>'; }
+function replyBox(text, who){
+  who = who || 'คำชี้แจงจากพรรค';
+  if (text) return '<div class="reply"><div class="reply-h">'+who+'<span class="chip">ส่งมาเมื่อ 25 ก.ย. 2569</span></div><p>'+esc(text)+'</p></div>';
+  return '<div class="reply"><div class="reply-h">'+who+'<span class="chip">ยังไม่มี</span></div><p>ยังไม่ได้รับคำชี้แจง เมื่อได้รับ เราจะแสดงไว้ตรงนี้ข้างข้อมูลทันที โดยไม่ตัดทอน</p></div>';
+}
+function attBar(v, h){ return '<div class="abar" aria-hidden="true"><i style="width:'+Math.max(0, Math.min(100, v))+'%"></i>'+(isNum(h) ? '<b style="left:'+Math.max(0, Math.min(100, h))+'%"></b>' : '')+'</div>'; }
+function cmpWord(v, b, who, dec){
+  if (!isNum(v) || !isNum(b)) return '';
+  var d = v - b;
+  if (Math.abs(d) <= 5) return 'ใกล้เคียง' + who;
+  return (d > 0 ? 'สูงกว่า' : 'ต่ำกว่า') + who + ' ' + (dec ? p1(Math.abs(d)) : Math.round(Math.abs(d)));
+}
+function legend(items){ return '<div class="rleg">'+items.map(function(it){ return '<span><i class="'+it[0]+'" aria-hidden="true"></i>'+esc(it[1])+'</span>'; }).join('')+'</div>'; }
+function goAttr(route){ return 'data-go="'+esc(route)+'"'; }
+function waitNote(t, d){ return '<div class="note" style="margin-top:12px"><p class="note-t">'+t+'</p><p>'+d+'</p></div>'; }
+
+/* =====================================================================
+   RADAR — same 5 axes and 0–100 scale everywhere.
+   o.na   = ไม่เทียบ (hatched)   o.pend = รอข้อมูล (dashed spoke, no shape)
+   o.layers = [{vals:[5], kind:'fill'|'dash'|'dot'}]   o.txt = value labels
+   ===================================================================== */
+var rid = 0;
+function radarSVG(o){
+  var small = !!o.small, cx = small ? 65 : 170, cy = small ? 60 : 136, R = small ? 50 : 86, n = 5, id = 'rh' + (rid++);
+  function ang(i){ return (-90 + 72 * i) * Math.PI / 180; }
+  function pt(i, v){ return [cx + R * v / 100 * Math.cos(ang(i)), cy + R * v / 100 * Math.sin(ang(i))]; }
+  function P(a){ return a[0].toFixed(1) + ',' + a[1].toFixed(1); }
+  var na = o.na || [false,false,false,false,false], pend = o.pend || [false,false,false,false,false];
+  var outer = [0,1,2,3,4].map(function(i){ return P(pt(i, 100)); }).join(' ');
+  var h = '<svg class="radar'+(small ? ' radar-sm' : '')+'" viewBox="0 0 '+(small ? '130 120' : '340 274')+'" role="img" aria-label="'+esc(o.label || '')+'">' +
+    '<defs><pattern id="'+id+'" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" style="fill:var(--sunken)"/><line x1="0" y1="0" x2="0" y2="5" style="stroke:var(--ink-3);stroke-width:1.3"/></pattern></defs>' +
+    '<polygon points="'+outer+'" style="fill:var(--card);stroke:var(--hair);stroke-width:1.2"/>';
+  na.forEach(function(x, i){
+    if (!x) return;
+    var o0 = pt(i, 100), l = pt((i + 4) % 5, 100), r = pt((i + 1) % 5, 100);
+    h += '<polygon points="'+P([cx, cy])+' '+P([(o0[0]+l[0])/2, (o0[1]+l[1])/2])+' '+P(o0)+' '+P([(o0[0]+r[0])/2, (o0[1]+r[1])/2])+'" style="fill:url(#'+id+');opacity:.75"/>';
+  });
+  for (var i = 0; i < n; i++) { var e = pt(i, 100); h += '<line x1="'+cx+'" y1="'+cy+'" x2="'+e[0].toFixed(1)+'" y2="'+e[1].toFixed(1)+'" style="stroke:'+(pend[i] ? 'var(--ink-3)' : 'var(--hair)')+';stroke-width:1.2'+(na[i] || pend[i] ? ';stroke-dasharray:2 3' : '')+'"/>'; }
+  function runs(ok){
+    if (ok.every(Boolean)) return [[0,1,2,3,4]];
+    var out = [], start = ok.indexOf(false), cur = [];
+    for (var k = 1; k <= 5; k++) { var j = (start + k) % 5; if (ok[j]) cur.push(j); else { if (cur.length) out.push(cur); cur = []; } }
+    return out;
+  }
+  var STROKE = {dash:'stroke:var(--ink-2);stroke-width:1.7;stroke-dasharray:6 4', dot:'stroke:var(--ink);stroke-width:2;stroke-dasharray:0.1 4.2;stroke-linecap:round'};
+  var FILL = 'fill:color-mix(in srgb,var(--ink) 14%,transparent)';
+  (o.layers || []).slice().sort(function(a, b){ return (a.kind === 'fill') - (b.kind === 'fill'); }).forEach(function(L){
+    var ok = [0,1,2,3,4].map(function(i){ return !na[i] && !pend[i] && isNum(L.vals[i]); });
+    runs(ok).forEach(function(run){
+      var pts = run.map(function(i){ return P(pt(i, L.vals[i])); }).join(' ');
+      if (run.length === 5) {
+        h += L.kind === 'fill' ? '<polygon points="'+pts+'" style="'+FILL+';stroke:var(--ink);stroke-width:2.2;stroke-linejoin:round"/>' : '<polygon points="'+pts+'" style="fill:none;'+STROKE[L.kind]+'"/>';
+      } else if (run.length > 1) {
+        h += L.kind === 'fill' ? '<polygon points="'+P([cx, cy])+' '+pts+'" style="'+FILL+'"/><polyline points="'+pts+'" style="fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linejoin:round"/>' : '<polyline points="'+pts+'" style="fill:none;'+STROKE[L.kind]+'"/>';
+      } else {
+        var a = ang(run[0]), q = pt(run[0], L.vals[run[0]]);
+        if (L.kind === 'fill') h += '<line x1="'+cx+'" y1="'+cy+'" x2="'+q[0].toFixed(1)+'" y2="'+q[1].toFixed(1)+'" style="stroke:var(--ink);stroke-width:3;stroke-linecap:round"/>';
+        else { var t = small ? 7 : 11, dx = -Math.sin(a) * t, dy = Math.cos(a) * t; h += '<line x1="'+(q[0]-dx).toFixed(1)+'" y1="'+(q[1]-dy).toFixed(1)+'" x2="'+(q[0]+dx).toFixed(1)+'" y2="'+(q[1]+dy).toFixed(1)+'" style="'+STROKE[L.kind]+'"/>'; }
+      }
+      if (L.kind === 'fill' && (!small || run.length === 1)) run.forEach(function(i){ var q = pt(i, L.vals[i]); h += '<circle cx="'+q[0].toFixed(1)+'" cy="'+q[1].toFixed(1)+'" r="'+(small ? 3 : 3.5)+'" style="fill:var(--ink)"/>'; });
+    });
+  });
+  if (!small && o.txt) AXES.forEach(function(x, i){
+    var c = Math.cos(ang(i)), s = Math.sin(ang(i)), L = pt(i, 100 + 16 / R * 100), anc = c > 0.2 ? 'start' : (c < -0.2 ? 'end' : 'middle');
+    var lines = x.l, total = lines.length + 1, y, dim = na[i] || pend[i];
+    if (s < -0.9) y = L[1] - (total - 1) * 16 - 2; else if (s > 0.5) y = L[1] + 10; else y = L[1] - (total - 1) * 8 + 4;
+    lines.forEach(function(t, li){ h += '<text x="'+L[0].toFixed(1)+'" y="'+(y + li * 16).toFixed(1)+'" text-anchor="'+anc+'" style="fill:'+(dim ? 'var(--ink-3)' : 'var(--ink-2)')+'">'+t+'</text>'; });
+    h += '<text x="'+L[0].toFixed(1)+'" y="'+(y + lines.length * 16).toFixed(1)+'" text-anchor="'+anc+'" style="fill:'+(dim ? 'var(--ink-3)' : 'var(--ink)')+';font-weight:'+(dim ? 600 : 700)+'">'+esc(o.txt[i])+'</text>';
+  });
+  return h + '</svg>';
+}
+function houseMedVals(rateMed){ return [rateMed, 50, 50, 50, 50]; }
+var PEND4 = [false, true, true, true, true];
+function oneAxis(v){ return [v, null, null, null, null]; }
+
+/* =====================================================================
+   HOME
+   ===================================================================== */
+function statusCounts(ps){ var c = Object.create(null); LV.forEach(function(v){ c[v] = 0; }); ps.forEach(function(x){ if (isNum(x.status) && Object.prototype.hasOwnProperty.call(c, x.status)) c[x.status]++; }); return c; }
+function countsLine(ps){ var c = statusCounts(ps); return LV.slice().reverse().filter(function(v){ return c[v]; }).map(function(v){ return esc(ladderName(v)) + ' ' + c[v]; }).join(' · '); }
+function promisesOf(p){ return Array.isArray(p.promises) ? p.promises.filter(function(x){ return x && typeof x.text === 'string'; }) : []; }
+function hasEvidence(x){ return Array.isArray(x.evidence) && x.evidence.length > 0; }
+function partyRow(p){
+  var sub = []; if (isNum(p.seats)) sub.push(p.seats + ' ที่นั่ง'); if (sideName(p.side)) sub.push(sideName(p.side));
+  var ps = promisesOf(p), a = p.attendance;
+  var l2 = (a && isNum(a.rate) ? 'มาลงมติ ' + p1(a.rate) + '%' : 'รอนำเข้าข้อมูลการลงมติ');
+  return '<button class="row" '+goAttr('party/'+encodeURIComponent(p.name))+'><div class="row-main"><p class="row-t">'+esc(p.name)+'</p>' +
+    (sub.length ? '<p class="row-s">'+sub.join(' · ')+'</p>' : '') + '<p class="row-s">'+l2+'</p>' +
+    (ps.length ? '<p class="row-s">คำสัญญา '+ps.length+' ข้อ · '+countsLine(ps)+'</p>' : '') +
+    (isNum(p.seats) ? '<div class="seat" aria-hidden="true"><i style="width:'+Math.min(100, p.seats / 5)+'%"></i></div>' : '') + '</div>'+CHEV+'</button>';
+}
+function mpArea(m){
+  if (m.list != null && m.list !== '') return 'แบบบัญชีรายชื่อ' + (isNum(m.list) ? ' ลำดับที่ ' + m.list : '');
+  var a = []; if (m.province) a.push(esc(m.province)); if (m.district != null && m.district !== '') a.push('เขต ' + esc(m.district)); return a.join(' ');
+}
+function mpBadges(m){ return (m.minister ? '<span class="chip tag">รัฐมนตรี</span>' : '') + (m.presiding ? '<span class="chip">ประธาน/รองประธานสภา</span>' : ''); }
+function mpRow(m){
+  var b = mpBadges(m);
+  return '<button class="row" '+goAttr('mp/'+encodeURIComponent(String(m.id)))+'><div class="row-main"><p class="row-t">'+esc(m.name)+'</p><p class="row-s">'+esc(m.party || 'ไม่ทราบพรรค')+(mpArea(m) ? ' · '+mpArea(m) : '')+'</p>'+(b ? '<div class="gap8" style="margin-top:6px">'+b+'</div>' : '')+'</div>'+CHEV+'</button>';
+}
+function renderHome(){
+  var allP = []; RP.forEach(function(p){ allP = allP.concat(promisesOf(p)); });
+  var nWithP = RP.filter(function(p){ return promisesOf(p).length; }).length, anyEv = allP.some(hasEvidence), nullSeat = RP.some(function(p){ return !isNum(p.seats); });
+  document.getElementById('s-home').innerHTML = bar(false) +
+  '<div class="scroll">' +
+    '<h1 class="ltitle">เช็กก่อนเลือก</h1>' +
+    '<p class="lead">ดูว่าพรรคและ ส.ส. ทำตามที่หาเสียงไว้หรือไม่ มาลงมติหรือเปล่า และมีเรื่องค้างอยู่ไหม ทุกตัวเลขกดดูหลักฐานได้</p>' +
+    '<label class="lbl" for="q">ค้นหา ส.ส. ของคุณ'+(RM.length ? ' ('+fmt(RM.length)+' คน)' : '')+'</label>' +
+    '<div class="search">'+SEARCHI+'<input id="q" type="search" autocomplete="off" placeholder="พิมพ์ชื่อ ส.ส. จังหวัด หรือพรรค" enterkeyhint="search"><button class="clear" id="qclear" aria-label="ล้างคำค้น" hidden>'+XI+'</button></div>' +
+    '<div id="results"></div>' +
+    '<div id="homeMain">' +
+      (RP.length
+        ? '<div class="sec"><h2 class="sec-h">พรรคการเมือง '+RP.length+' พรรค</h2><p class="sec-c">เรียงตามจำนวนที่นั่งในสภา จากมากไปน้อย ไม่ใช่การจัดอันดับผลงาน'+(nullSeat ? ' · พรรคที่ยังไม่มีข้อมูลที่นั่งอยู่ท้ายรายการ' : '')+'</p><div class="list">'+RP.map(partyRow).join('')+'</div></div>'
+        : waitNote('รอนำเข้าข้อมูล', 'ยังไม่มีรายชื่อพรรคในชุดข้อมูล')) +
+      '<div class="list" style="margin-top:12px">' +
+        '<button class="row" '+goAttr('att')+'><div class="row-main"><p class="row-t">การทำหน้าที่ในสภา ทุกพรรค</p><p class="row-s">'+(HRATE != null ? 'ทั้งสภามาลงมติ '+p1(HRATE)+'%' : 'รอนำเข้าข้อมูลการลงมติ')+'</p></div>'+CHEV+'</button>' +
+        '<button class="row" '+goAttr('trend')+'><div class="row-main"><p class="row-t">แนวโน้มรายเดือน</p><p class="row-s">ทั้งสภาและแต่ละพรรค เดือนต่อเดือน</p></div>'+CHEV+'</button>' +
+        '<button class="row" '+goAttr('house')+'><div class="row-main"><p class="row-t">ภาพรวมทั้งสภา</p><p class="row-s">กราฟ 5 ด้านของทั้งสภาและแต่ละพรรค</p></div>'+CHEV+'</button>' +
+      '</div>' +
+      (allP.length && !anyEv ? waitNote('คำสัญญายังไม่เริ่มนับ', 'เรารวบรวมคำสัญญา '+allP.length+' ข้อจาก '+nWithP+' พรรค จากเอกสารที่ยื่น กกต. และนโยบายหาเสียงหลัก ทุกข้อยังอยู่ที่ “'+esc(ladderName(0))+'” จนกว่าจะมีเอกสารทางการยืนยันความคืบหน้า') : '') +
+      '<div class="sec"><h2 class="sec-h">วิธีอ่าน</h2><p class="sec-c">ตัวอย่างหน้าที่มีข้อมูลครบทุกด้าน ใช้ข้อมูลสมมติทั้งหมด</p>' +
+        '<div class="list">' +
+          '<button class="row" '+goAttr('sample/party')+'><div class="row-main"><p class="row-t">พรรคตัวอย่าง</p><p class="row-s">สมุดพกพรรคที่มีคะแนนครบทุกด้าน</p></div><span class="chip hatch" style="color:var(--ink)">สมมติ</span>'+CHEV+'</button>' +
+          '<button class="row" '+goAttr('sample/mp/mpA')+'><div class="row-main"><p class="row-t">นายสมมติ ทดลองดี</p><p class="row-s">สมุดพก ส.ส. พร้อมกราฟ 5 ด้านและเรื่องร้องเรียน</p></div><span class="chip hatch" style="color:var(--ink)">สมมติ</span>'+CHEV+'</button>' +
+          '<button class="row" '+goAttr('sample/mp/mpC')+'><div class="row-main"><p class="row-t">นายตัวอย่าง บริหารดี</p><p class="row-s">ตัวอย่าง ส.ส. ที่เป็นรัฐมนตรี</p></div><span class="chip hatch" style="color:var(--ink)">สมมติ</span>'+CHEV+'</button>' +
+        '</div></div>' +
+    '</div>' +
+    foot() +
+  '</div>';
+  var q = document.getElementById('q'), clr = document.getElementById('qclear');
+  q.addEventListener('input', function(){ clr.hidden = !q.value; renderResults(q.value); });
+  clr.addEventListener('click', function(){ q.value = ''; clr.hidden = true; renderResults(''); q.focus(); });
+}
+function renderResults(raw){
+  var box = document.getElementById('results'), main = document.getElementById('homeMain');
+  var q = raw.trim(), dm = /เขต\s*(\d+)/.exec(q), dist = dm ? +dm[1] : null;
+  var t = q.replace(/^จ\.\s*/, '').replace(/^จังหวัด\s*/, '').replace(/\s*เขต\s*\d*$/, '').trim();
+  if (t === 'กทม' || t === 'กทม.') t = 'กรุงเทพมหานคร';
+  if (!t) { box.innerHTML = ''; main.hidden = false; return; }
+  main.hidden = true;
+  var mps = RM.filter(function(m){ return ((m.name || '') + ' ' + (m.province || '') + ' ' + (m.party || '')).indexOf(t) !== -1 && (dist == null || +m.district === dist); });
+  var parts = RP.filter(function(p){ return p.name.indexOf(t) !== -1; });
+  var provs = t.length >= 2 ? PROVINCES.filter(function(p){ return p.indexOf(t) !== -1 && !RM.some(function(m){ return m.province === p; }); }).slice(0, 3) : [];
+  var LIM = 30, h = '';
+  if (mps.length) {
+    h += '<div class="sec" style="margin-top:20px"><h2 class="sec-h">ส.ส.</h2><p class="sec-c">พบ '+fmt(mps.length)+' คน'+(mps.length > LIM ? ' แสดง '+LIM+' คนแรก พิมพ์เพิ่มเพื่อกรอง' : '')+'</p><div class="list">'+mps.slice(0, LIM).map(mpRow).join('')+'</div></div>';
+  }
+  if (parts.length) {
+    h += '<div class="sec" style="margin-top:20px"><h2 class="sec-h">พรรค</h2><div class="list">'+parts.map(function(p){
+      return '<button class="row" '+goAttr('party/'+encodeURIComponent(p.name))+'><div class="row-main"><p class="row-t">'+esc(p.name)+'</p><p class="row-s">'+(isNum(p.seats) ? p.seats+' ที่นั่ง' : 'ยังไม่มีข้อมูลที่นั่ง')+(sideName(p.side) ? ' · '+sideName(p.side) : '')+'</p></div>'+CHEV+'</button>';
+    }).join('')+'</div></div>';
+  }
+  if (provs.length) {
+    h += '<div class="sec" style="margin-top:20px"><h2 class="sec-h">จังหวัด</h2>'+provs.map(function(p){
+      return '<div class="note" style="margin-top:10px"><p class="note-t">'+esc(p)+'</p><p>ยังไม่มีรายชื่อ ส.ส. ของจังหวัดนี้ในชุดข้อมูล รายชื่อจะขึ้นที่นี่เมื่อนำเข้าข้อมูลแล้ว</p></div>';
+    }).join('')+'</div>';
+  }
+  if (!h) h = '<div class="card empty" style="margin-top:20px"><p class="note-t">ไม่พบ “'+esc(q)+'”</p><p>ลองพิมพ์แค่ชื่อต้น หรือพิมพ์ชื่อจังหวัด เช่น เชียงใหม่</p></div>';
+  box.innerHTML = h;
+}
+
+/* =====================================================================
+   PARTY (real data)
+   ===================================================================== */
+function attEvidence(label, a){
+  return ev({label:label, value:p1(a.rate)+'%', src:VOTE_SRC, ref:'ลงมติ '+fmt(a.voted)+' ÷ ครั้งที่นับ '+fmt(a.eligible)+' × 100', note:'ครั้งที่นับไม่รวมที่ตัดออกเพราะไม่แสดงตนพร้อมพรรค ('+fmt(a.excluded)+' ครั้ง)'+(HRATE != null ? ' · ทั้งสภา '+p1(HRATE)+'%' : ''), url:SRC && SRC.url});
+}
+function promiseAvg(ps){ if (!ps.length) return null; var s = 0; ps.forEach(function(x){ s += isNum(x.status) ? x.status : 0; }); return Math.round(s / ps.length); }
+function renderParty(name){
+  var p = partyByName(name); if (!p) return notFound();
+  var ps = promisesOf(p), a = p.attendance, anyEv = ps.some(hasEvidence);
+  var dims = p.side === 'gov' ? GOV_DIMS : (p.side === 'opp' || p.side === 'none' ? OPP_DIMS : OPP_DIMS.filter(function(d){ return d.k === 'att'; }));
+  var dimRows = dims.map(function(d){
+    if (d.k === 'att' && a && isNum(a.rate)) {
+      return '<button class="dim" data-ev="'+attEvidence(d.n+' · '+p.name, a)+'"><div class="row-main"><p class="row-t">'+d.n+'</p><p class="row-s">ลงมติ '+fmt(a.voted)+' จาก '+fmt(a.eligible)+' ครั้งที่นับ'+(HRATE != null ? ' · ทั้งสภา '+p1(HRATE)+'%' : '')+'</p>'+attBar(a.rate, HRATE)+'<span class="evl">ดูหลักฐาน</span></div><div class="dim-v"><div class="big">'+p1(a.rate)+'<small>%</small></div></div></button>';
+    }
+    if (d.k === 'promise' && anyEv) {
+      var v = promiseAvg(ps), k = ev({label:d.n+' · '+p.name, value:v+' จาก 100', src:'คำนวณจากสถานะคำสัญญา '+ps.length+' ข้อในหน้านี้', ref:'ค่าเฉลี่ยของคะแนนขั้นบันได 0–100 ทุกข้อ', note:'ข้อที่ยังไม่มีหลักฐานนับเป็น 0'});
+      return '<button class="dim" data-ev="'+k+'"><div class="row-main"><p class="row-t">'+d.n+'</p><p class="row-s">เฉลี่ยจากคำสัญญา '+ps.length+' ข้อ</p><div class="bar-track" aria-hidden="true"><i style="width:'+v+'%"></i></div><span class="evl">ดูหลักฐาน</span></div><div class="dim-v"><div class="big">'+v+'<small>/100</small></div></div></button>';
+    }
+    return '<div class="dim" style="cursor:default"><div class="row-main"><p class="row-t">'+d.n+'</p><p class="row-s">'+d.d+'</p></div><div class="dim-v"><span class="chip wait">'+(d.k === 'att' ? 'รอข้อมูลการลงมติ' : 'รอเริ่มนับ')+'</span></div></div>';
+  }).join('');
+  var sideTxt = sideName(p.side);
+  var meta = [isNum(p.seats) ? p.seats + ' ที่นั่ง' : '', sideTxt].filter(Boolean).join(' · ');
+  var ect = (p.ectSummary || safeUrl(p.ectDoc)) ? '<button class="evbtn" style="margin-top:12px" data-ev="'+ev({label:'เอกสารที่พรรคยื่น กกต.', value:p.ectSummary || 'เอกสารฉบับเต็ม', src:ECT_DOC, ref:'ฉบับเต็มของ'+p.name, note:'ตัวเลขรวมเป็นของพรรคเอง ตามที่เขียนไว้ในเอกสาร เราไม่ได้คำนวณใหม่', url:p.ectDoc})+'"><b>เอกสารที่ยื่น กกต.</b><span>'+esc(p.ectSummary || 'เปิดเอกสารฉบับเต็ม')+'</span></button>' : '';
+  var proms = ps.length ? '<div class="list">'+ps.map(function(x){
+      var st = isNum(x.status) ? x.status : 0, tags = Array.isArray(x.tags) ? x.tags : [];
+      return '<button class="row" '+goAttr('promise/'+encodeURIComponent(p.name)+'/'+encodeURIComponent(String(x.id)))+'><div class="row-main"><p class="row-t">'+esc(x.text)+'</p>'+(x.budget ? '<p class="row-s">วงเงิน: '+esc(x.budget)+'</p>' : '')+
+        '<div class="gap8" style="margin-top:6px"><span class="chip'+(st === 0 ? ' wait' : '')+'">'+esc(ladderName(st))+'</span>'+(x.source === 'campaign' ? '<span class="chip">เรือธง · ไม่อยู่ในเอกสาร กกต.</span>' : '')+tags.map(function(t){ return '<span class="chip tag">'+esc(t)+'</span>'; }).join('')+'</div>'+steps(Math.round(st / 25))+'</div>'+CHEV+'</button>';
+    }).join('')+'</div>' : '<div class="card empty"><p>ยังไม่มีคำสัญญาของพรรคนี้ในชุดข้อมูล</p></div>';
+  document.getElementById('s-party').innerHTML = bar(true) +
+  '<div class="scroll">' +
+    '<p class="eyebrow">สมุดพกพรรค</p><h1 class="ltitle">'+esc(p.name)+'</h1>' +
+    (meta ? '<p class="meta">'+meta+'</p>' : '') +
+    (p.side === 'none' ? '<p class="meta" style="margin-top:4px">วัดผลด้วยตัวชี้วัดชุดเดียวกับฝ่ายค้าน เพราะไม่ได้ร่วมรัฐบาล</p>' : '') +
+    pmLine(p) + ect +
+    (!anyEv && !(a && isNum(a.rate)) ? '<div class="note" style="margin-top:16px"><p class="note-t">ยังไม่มีคะแนน</p><p>เราจะไม่แสดงตัวเลขของพรรคนี้จนกว่าจะตรวจหลักฐานครบตามเกณฑ์เดียวกับทุกพรรค</p></div>' : '') +
+    '<div class="sec"><h2 class="sec-h">ผลงานแยกทีละด้าน</h2><p class="sec-c">'+(p.side ? 'ไม่มีเกรดรวม เพราะแต่ละด้านวัดคนละเรื่อง ใช้ตัวชี้วัดชุด'+(p.side === 'gov' ? 'ฝ่ายรัฐบาล '+GOV_DIMS.length+' ด้าน' : 'ฝ่ายค้าน '+OPP_DIMS.length+' ด้าน') : 'ยังไม่ได้ระบุฝ่ายของพรรคนี้ จึงแสดงเฉพาะด้านที่ใช้กับทุกพรรค')+'</p><div class="list">'+dimRows+'</div>' +
+      (p.side === 'gov' ? waitNote('ผลลัพธ์ที่เกิดขึ้นจริง', 'จะแสดงเป็นบริบทเท่านั้น ไม่นำมาคิดคะแนน') : '') +
+      '<div class="card" style="margin-top:12px"><p class="row-t">คะแนนรวม</p><p class="row-s">ปิดไว้เป็นค่าเริ่มต้น และจะเปิดให้ตั้งน้ำหนักเองได้เมื่อเริ่มนับคะแนน</p></div></div>' +
+    partyAttReal(p) +
+    partyRadarReal(p) +
+    '<div class="sec"><h2 class="sec-h">คำสัญญาที่ติดตาม '+ps.length+' ข้อ</h2>'+(ps.length ? '<p class="sec-c">'+countsLine(ps)+' · ถ้อยคำและวงเงินตามที่พรรคเขียนไว้ ไม่แปลงหน่วย</p>' : '')+proms+'</div>' +
+    '<div class="sec">'+replyBox('')+'</div>' +
+    '<div>'+reportLink(p.name)+'</div>' +
+    foot() +
+  '</div>';
+}
+var PM_STANCE = Object.create(null);
+PM_STANCE['for'] = 'choice'; PM_STANCE['other'] = 'choice'; PM_STANCE['abstain'] = 'งดออกเสียง'; PM_STANCE['novote'] = 'อยู่ในที่ประชุมแต่ไม่ลงคะแนน';
+PM_STANCE['absent'] = 'ส่วนใหญ่ลา/ขาดลงมติ'; PM_STANCE['approve'] = 'เห็นชอบ'; PM_STANCE['reject'] = 'ไม่เห็นชอบ'; PM_STANCE['split'] = 'เสียงในพรรคแตกเท่ากัน';
+function pmLine(p){
+  var v = p.pmVote; if (!v || typeof v !== 'object' || typeof v.stance !== 'string' || !Object.prototype.hasOwnProperty.call(PM_STANCE, v.stance)) return '';
+  var pv = HOUSE && HOUSE.pmVote, d = pv ? thDate(pv.date) : null, what = PM_STANCE[v.stance];
+  if (what === 'choice') { var who = v.choice || (v.stance === 'for' && pv && pv.elected) || ''; if (!who) return ''; what = 'เลือก ' + esc(who); }
+  var share = v.stance !== 'split' && isNum(v.share) ? ' ('+v.share+'% ของ ส.ส. พรรค)' : '';
+  return '<p class="meta" style="margin-top:4px">โหวตเลือกนายกฯ'+(d ? ' '+d : '')+': '+what+share+'</p>';
+}
+function partyAttReal(p){
+  var head = '<div class="sec"><h2 class="sec-h">การทำหน้าที่ในสภา</h2><p class="sec-c">ส.ส. ทั้งพรรคมาลงมติกี่เปอร์เซ็นต์ของครั้งที่ควรลง รวมทุกคนเป็นตัวเลขเดียว</p>';
+  var more = '<button class="tbtn" style="margin-top:10px" '+goAttr('att')+'>เทียบทุกพรรค</button></div>';
+  var a = p.attendance;
+  if (!a || !isNum(a.rate)) return head + '<div class="card"><p class="row-t">รอนำเข้าข้อมูลการลงมติ</p><p class="row-s">เมื่อนำเข้าข้อมูลการลงมติแล้ว จะแสดงเปอร์เซ็นต์ของพรรคนี้ เทียบกับทั้งสภา พร้อมจำนวนครั้งที่ตัดออก</p><div class="abar hatch" aria-hidden="true"></div></div>' + more;
+  return head + '<div class="card"><div class="status-hd"><div><p class="eyebrow" style="margin:0">'+esc(p.name)+'</p><div class="big">'+p1(a.rate)+'<small>%</small></div></div>' +
+      (HRATE != null ? '<div style="text-align:right"><p class="eyebrow" style="margin:0">ทั้งสภา</p><div class="big" style="color:var(--ink-2)">'+p1(HRATE)+'<small>%</small></div></div>' : '') + '</div>' +
+    attBar(a.rate, HRATE) + (HRATE != null ? '<p class="row-s" style="margin-top:8px"><span class="hl" aria-hidden="true"></span>เส้นตั้ง = ทั้งสภา '+p1(HRATE)+'%</p>' : '') +
+    '<dl class="kv"><dt>ลงมติ</dt><dd>'+fmt(a.voted)+' ครั้ง</dd><dt>ครั้งที่นับ</dt><dd>'+fmt(a.eligible)+' ครั้ง</dd>' +
+      '<dt>ลา/ขาดลงมติ</dt><dd>'+fmt(a.absent)+' ครั้ง · '+ABSENT_NOTE+'</dd><dt>อยู่แต่ไม่ลงคะแนน</dt><dd>'+fmt(a.novote)+' ครั้ง</dd>' +
+      '<dt>ตัดออก (ไม่แสดงตนพร้อมพรรค)</dt><dd>'+fmt(a.excluded)+' ครั้ง'+(isNum(a.walkoutEvents) ? ' จาก '+fmt(a.walkoutEvents)+' มติ' : '')+' · ไม่นับ</dd></dl>' +
+    '<p class="mp">ตัดออกเมื่อ ส.ส. ของพรรคเกินครึ่งไม่ลงมติในมติเดียวกัน ถือเป็นการตัดสินใจร่วมของพรรค จึงไม่นับเป็นการขาดของคนใดคนหนึ่ง</p>' +
+    '<button class="evbtn" data-ev="'+attEvidence('การทำหน้าที่ในสภาของ'+p.name, a)+'"><b>ดูหลักฐานและสูตร</b><span>'+fmt(a.voted)+' ÷ '+fmt(a.eligible)+' × 100</span></button></div>' + more;
+}
+function partyRadarReal(p){
+  var head = '<div class="sec"><h2 class="sec-h">ส.ส. ของพรรคนี้โดยรวม เทียบกับทั้งสภา</h2><p class="sec-c">ค่ากลางของ ส.ส. ในพรรค บน 5 ด้านเดียวกับหน้า ส.ส.</p>';
+  var pm = partyMed(p.name);
+  if (!isNum(pm)) return head + '<div class="card"><p class="row-t">รอนำเข้าข้อมูล</p><p class="row-s">เมื่อนำเข้าข้อมูลแล้ว จะแสดงกราฟของ ส.ส. ในพรรคนี้เทียบกับค่ากลางทั้งสภา</p>'+radarSVG({small:true, label:'ยังไม่มีข้อมูล', layers:[]})+'</div></div>';
+  var nM = RM.filter(function(m){ return m.party === p.name && !m.presiding && !m.minister && m.att && m.att.eligible > 0; }).length;
+  var k = ev({label:'ค่ากลางของ ส.ส. '+p.name, value:p1(pm)+'%', src:VOTE_SRC, ref:'ค่ากลางอัตราการลงมติของ ส.ส. '+nM+' คนในพรรค', note:'ไม่นับประธาน/รองประธานสภาและรัฐมนตรี'+(HMED != null ? ' · ค่ากลางทั้งสภา '+p1(HMED)+'%' : ''), url:SRC && SRC.url});
+  var rows = AXES.map(function(x, i){
+    if (i === 0) return '<button class="vrow" data-ev="'+k+'"><div class="row-main"><p class="row-t">1. '+x.n+'</p><p class="row-s" style="color:var(--ink);font-weight:500">'+(cmpWord(pm, HMED, 'ค่ากลางสภา', true) || 'ยังไม่มีค่ากลางทั้งสภา')+'</p></div><div class="big">'+p1(pm)+'%</div></button>';
+    return '<div class="vrow na" style="cursor:default"><div class="row-main"><p class="row-t">'+(i+1)+'. '+x.n+'</p><p class="row-s">ยังไม่ได้นำเข้าข้อมูลด้านนี้</p></div><div class="big">รอข้อมูล</div></div>';
+  }).join('');
+  return head + '<div class="card">'+radarSVG({label:'กราฟค่ากลางของ ส.ส. '+p.name+' เทียบค่ากลางทั้งสภา มีข้อมูลด้านเดียว ตัวเลขแสดงด้านล่าง', pend:PEND4, txt:[p1(pm)+'%','รอข้อมูล','รอข้อมูล','รอข้อมูล','รอข้อมูล'], layers:[{vals:oneAxis(pm), kind:'fill'}, {vals:oneAxis(HMED), kind:'dot'}]}) +
+    legend([['','ค่ากลางของ ส.ส. '+p.name], ['dot','ค่ากลางทั้งสภา']]) + '<p class="cap">รูปทรงไม่ใช่คะแนนรวม ดูตัวเลขรายด้านประกอบ</p></div>' +
+    '<div class="list" style="margin-top:12px">'+rows+'</div><p class="row-s" style="margin-top:8px">ใกล้เคียง = ต่างกันไม่เกิน 5 · ค่ากลางของพรรคไม่นับประธาน/รองประธานสภาและรัฐมนตรี</p></div>';
+}
+
+/* ---------- PROMISE (real) ---------- */
+function evItem(e){
+  if (!e || typeof e !== 'object') return '';
+  var title = String(e.title || e.source || e.src || 'เอกสาร'), when = thDate(e.date) || (e.date ? String(e.date) : '');
+  var k = ev({label:title, value:when || title, src:String(e.source || e.src || ''), ref:String(e.ref || ''), note:e.note ? String(e.note) : '', url:e.url});
+  return '<button class="evbtn" data-ev="'+k+'"><b>'+esc(title)+(isNum(e.status) ? ' · '+esc(ladderName(e.status)) : '')+'</b><span>'+esc([when, e.ref].filter(Boolean).join(' · ') || 'กดดูรายละเอียด')+'</span></button>';
+}
+function renderPromise(pname, pid){
+  var p = partyByName(pname); if (!p) return notFound();
+  var x = null; promisesOf(p).forEach(function(y){ if (String(y.id) === pid) x = y; }); if (!x) return notFound();
+  var st = isNum(x.status) ? x.status : 0, evs = Array.isArray(x.evidence) ? x.evidence : [], tags = Array.isArray(x.tags) ? x.tags : [];
+  var isEct = x.source === 'ect' && x.ref;
+  var costK = isEct
+    ? ev({label:'วงเงินตามเอกสาร', value:x.budget || 'ไม่ระบุ', src:ECT_DOC, ref:x.ref, note:'ตัวเลขและหน่วยเป็นของพรรคเอง ตามที่เขียนไว้ เราไม่ได้ประเมินหรือแปลงหน่วยใหม่', url:p.ectDoc})
+    : ev({label:'วงเงิน', value:x.budget || 'ไม่ระบุ', src:FLAG_SRC, ref:x.ref || 'นโยบายเรือธงที่พรรคใช้หาเสียง ไม่มีเลขอ้างอิงในเอกสาร กกต.', note:'เราติดตามข้อนี้เพราะเป็นนโยบายหลักที่พรรคใช้หาเสียง'});
+  var ladder = LV.map(function(v, i){
+    var cls = !evs.length ? (i === 0 ? 'done now' : '') : (v < st ? 'done' : (v === st ? 'done now' : ''));
+    return '<li class="lstep '+cls+'"><span class="dot">'+i+'</span><div class="lbody"><p class="lname">'+esc(ladderName(v))+' <span style="color:var(--ink-2);font-weight:500">· '+v+' คะแนน</span></p></div></li>';
+  }).join('');
+  var head = evs.length
+    ? '<div class="card" style="margin-top:16px"><div class="status-hd"><div><p class="eyebrow" style="margin:0">สถานะตอนนี้</p><p class="mtitle" style="margin:0">'+esc(ladderName(st))+'</p></div><div class="big">'+st+'<small> คะแนน</small></div></div>'+steps(Math.round(st / 25))+'</div>'
+    : '<div class="note" style="margin-top:16px"><p class="note-t">สถานะ: '+esc(ladderName(0))+'</p><p>ยังไม่พบเอกสารทางการที่ยืนยันความคืบหน้าของข้อนี้ สถานะจะขยับเมื่อมีหลักฐาน การอยู่ขั้นนี้ไม่ได้แปลว่าไม่มีความคืบหน้า</p>' +
+      (isEct ? '<p style="margin-top:6px">อ้างอิง: '+esc(x.ref)+' ในเอกสารที่ยื่น กกต.</p>' : '') + extLink(p.ectDoc, 'เปิดเอกสาร กกต.') + '</div>';
+  document.getElementById('s-promise').innerHTML = bar(true) +
+  '<div class="scroll">' +
+    '<p class="eyebrow">คำสัญญาของ'+esc(p.name)+'</p><h1 class="mtitle">'+esc(x.text)+'</h1>' +
+    '<button class="evbtn" data-ev="'+costK+'" style="margin-top:4px"><b>วงเงิน: '+esc(x.budget || 'ไม่ระบุ')+'</b><span>'+(isEct ? 'ตามเอกสารที่ยื่น กกต. · '+esc(x.ref)+' · กดดูต้นฉบับ' : FLAG_SRC)+'</span></button>' +
+    (tags.length ? '<div class="gap8">'+tags.map(function(t){ return '<span class="chip tag">'+esc(t)+'</span>'; }).join('')+'</div>' : '') +
+    head +
+    '<div class="sec"><h2 class="sec-h">บันไดสถานะ</h2><p class="sec-c">ขยับขึ้นได้ทีละขั้น เมื่อมีเอกสารทางการยืนยันเท่านั้น</p><div class="card"><ol class="ladder">'+ladder+'</ol></div></div>' +
+    '<div class="sec"><h2 class="sec-h">หลักฐาน</h2>'+(evs.length ? '<div class="stack">'+evs.map(evItem).join('')+'</div>' : '<div class="card empty"><p>ยังไม่มีหลักฐาน</p></div>')+'</div>' +
+    '<div class="sec">'+replyBox('')+'</div>' +
+    '<div>'+reportLink(p.name + ' · ' + x.text)+'</div>' +
+    foot() +
+  '</div>';
+}
+
+/* =====================================================================
+   MP (real data)
+   ===================================================================== */
+function renderMP(id){
+  var m = mpById(id); if (!m) return notFound();
+  var a = m.att || {}, has = isNum(a.rate) && a.eligible > 0, pres = !!m.presiding, mn = !!m.minister;
+  var pm = partyMed(m.party), dis = m.dissent && isNum(m.dissent.n) ? m.dissent : null;
+  var rateK = has ? ev({label:'อัตราการลงมติ', value:p1(a.rate)+'%', src:VOTE_SRC, ref:'ลงมติ '+fmt(a.voted)+' จาก '+fmt(a.eligible)+' ครั้งที่นับ', note:pres ? PRESIDE_NOTE : ('ค่ากลางทั้งสภา '+p1(HMED)+'% · ค่ากลางของ'+(m.party || 'พรรค')+' '+p1(pm)+'%'), url:SRC && SRC.url}) : null;
+  var disK = dis ? ev({label:'ลงมติต่างจากเสียงข้างมากของพรรค', value:fmt(dis.n)+' จาก '+fmt(dis.of)+' ครั้ง', src:VOTE_SRC, ref:'เทียบกับเสียงข้างมากของพรรคในแต่ละมติ', note:'ไม่ใช่เรื่องดีหรือไม่ดี และไม่ใช่คะแนน แสดงไว้ให้คุณตัดสินเอง', url:SRC && SRC.url}) : null;
+  var rateLine = has
+    ? '<button class="row" data-ev="'+rateK+'"><div class="row-main"><p class="row-t">มาลงมติ '+p1(a.rate)+'%</p><p class="row-s">'+(pres ? 'ไม่เทียบ · ประธาน/รองประธานสภา' : (HMED != null ? 'ค่ากลางของทั้งสภา '+p1(HMED)+'%' : 'ยังไม่มีค่ากลางทั้งสภา'))+'</p></div>'+CHEV+'</button>'
+    : '<div class="row" style="cursor:default"><div class="row-main"><p class="row-t">การลงมติ</p><p class="row-s">รอนำเข้าข้อมูลการลงมติ</p></div></div>';
+  var disLine = dis
+    ? '<button class="row" data-ev="'+disK+'"><div class="row-main"><p class="row-t">ลงมติต่างจากเสียงข้างมากของพรรค '+fmt(dis.n)+' จาก '+fmt(dis.of)+' ครั้ง</p><p class="row-s">ไม่ใช่เรื่องดีหรือไม่ดี และไม่ใช่คะแนน</p></div>'+CHEV+'</button>'
+    : '<div class="row" style="cursor:default"><div class="row-main"><p class="row-t">การลงมติต่างจากพรรค</p><p class="row-s">รอข้อมูล</p></div></div>';
+  var b = mpBadges(m);
+  document.getElementById('s-mp').innerHTML = bar(true) +
+  '<div class="scroll" id="mpScroll">' +
+    '<p class="eyebrow">สมุดพก ส.ส.</p><h1 class="ltitle">'+esc(m.name)+'</h1><p class="meta">'+esc(m.party || 'ไม่ทราบพรรค')+(mpArea(m) ? ' · '+mpArea(m) : '')+'</p>' +
+    (b ? '<div class="gap8">'+b+'</div>' : '') +
+    (pres ? '<div class="note" style="margin-top:12px"><p class="note-t">ไม่เทียบอัตราการลงมติ</p><p>'+PRESIDE_NOTE+'</p></div>' : '') +
+    '<div class="list" style="margin-top:18px">' + rateLine + disLine +
+      '<div class="row" style="cursor:default"><div class="row-main"><p class="row-t">เรื่องทางกฎหมายและจริยธรรม</p><p class="row-s">รอนำเข้าข้อมูล</p></div></div>' +
+    '</div>' +
+    mpWorkReal(m, has, pres, mn, pm) +
+    mpCounts(m, has) +
+    mpMonthly(m) +
+    '<div class="sec"><h2 class="sec-h">ข้อเท็จจริงประกอบ</h2><p class="sec-c">แสดงให้เห็นเท่านั้น ไม่นำไปคิดคะแนนใดๆ</p><div class="list">' +
+      '<div class="fact"><p class="fact-l">ตำแหน่งรัฐมนตรี</p><p class="fact-v">'+(mn ? 'เป็นรัฐมนตรี' : 'ไม่ได้เป็นรัฐมนตรี')+'</p><p class="row-s">ตามข้อมูล ณ วันที่ดึงข้อมูล</p></div>' +
+      '<div class="fact"><p class="fact-l">ยื่นบัญชีทรัพย์สินต่อ ป.ป.ช. ตรงเวลาหรือไม่</p><p class="fact-v">รอนำเข้าข้อมูล</p>'+extLink(NACC, 'ตรวจเองที่เว็บไซต์ ป.ป.ช.')+'</div>' +
+      '<div class="fact"><p class="fact-l">ประวัติย้ายพรรค</p>'+partyHistoryFact(m)+'</div>' +
+    '</div></div>' +
+    '<div class="sec"><h2 class="sec-h">เรื่องทางกฎหมายและจริยธรรม</h2><p class="sec-c">แสดงแยกจากผลงาน และไม่นำไปหักคะแนนใดๆ</p>' +
+      '<div class="note"><p class="note-t">รอนำเข้าข้อมูล</p><p>ยังไม่ได้นำเข้าข้อมูลจากประกาศของ ป.ป.ช. กกต. ศาล และสภา การว่างไว้ไม่ได้แปลว่าไม่มีเรื่อง</p></div>' +
+      '<button class="tbtn" style="margin-top:10px" data-sheet="legend">ความหมายของแต่ละระดับ</button> ' +
+      '<button class="tbtn" style="margin-top:10px" '+goAttr('sample/mp/mpA')+'>ดูตัวอย่างเมื่อมีข้อมูล</button>' +
+    '</div>' +
+    '<div>'+reportLink('ส.ส. ' + m.name)+'</div>' +
+    foot() +
+  '</div>';
+}
+function partyHistoryFact(m){
+  var ph = m.partyHistory;
+  if (!ph || typeof ph !== 'object' || Array.isArray(ph)) return '<p class="fact-v">รอนำเข้าข้อมูล</p>';
+  var ent = Object.keys(ph).filter(function(k){ return Object.prototype.hasOwnProperty.call(ph, k) && isNum(ph[k]); }).map(function(k){ return [k, ph[k]]; });
+  if (!ent.length) return '<p class="fact-v">รอนำเข้าข้อมูล</p>';
+  ent.sort(function(a, b){ return b[1] - a[1]; });
+  var line = 'ลงมติในนาม' + ent.map(function(e){ return esc(e[0]) + ' ' + fmt(e[1]) + ' ครั้ง'; }).join(', ');
+  return '<p class="fact-v">'+(ent.length > 1 ? 'ลงมติในนาม '+ent.length+' พรรค' : 'ลงมติในนามพรรคเดียว')+'</p><p class="row-s">'+line+'</p>'+(m.party ? '<p class="row-s">พรรคล่าสุด: '+esc(m.party)+'</p>' : '');
+}
+function mpWorkReal(m, has, pres, mn, pm){
+  var a = m.att || {}, na = [false, false, mn, mn, false], pend = [!has, true, !mn, !mn, true];
+  var txt = [has ? p1(a.rate)+'%' : 'รอข้อมูล', 'รอข้อมูล', mn ? 'ไม่เทียบ' : 'รอข้อมูล', mn ? 'ไม่เทียบ' : 'รอข้อมูล', 'รอข้อมูล'];
+  var layers = [{vals:oneAxis(has ? a.rate : null), kind:'fill'}];
+  if (!pres) { layers.push({vals:oneAxis(pm), kind:'dash'}); layers.push({vals:oneAxis(HMED), kind:'dot'}); }
+  var cmp1 = !has ? 'รอนำเข้าข้อมูลการลงมติ' : pres ? 'ไม่เทียบ · ประธาน/รองประธานสภา' : [cmpWord(a.rate, pm, 'ค่ากลางพรรค', true), cmpWord(a.rate, HMED, 'ค่ากลางสภา', true)].filter(Boolean).join(' · ') || 'ยังไม่มีค่ากลางให้เทียบ';
+  var rows = AXES.map(function(x, i){
+    if (i === 0) return '<div class="vrow'+(has ? '' : ' na')+'" style="cursor:default"><div class="row-main"><p class="row-t">1. '+x.n+'</p><p class="row-s" style="color:var(--ink);font-weight:500">'+cmp1+'</p>'+(has ? '<p class="row-s">ลงมติ '+fmt(a.voted)+' จาก '+fmt(a.eligible)+' ครั้งที่นับ'+(pres ? '' : ' · ค่ากลางพรรค '+p1(pm)+'% · ค่ากลางสภา '+p1(HMED)+'%')+'</p>' : '')+'</div><div class="big">'+txt[0]+'</div></div>';
+    if (na[i]) return '<div class="vrow na" style="cursor:default"><div class="row-main"><p class="row-t">'+(i+1)+'. '+x.n+'</p><p class="row-s">รัฐมนตรีไม่ได้ทำงานด้านนี้ตามปกติ จึงไม่นำมาเทียบ</p></div><div class="big">ไม่เทียบ</div></div>';
+    return '<div class="vrow na" style="cursor:default"><div class="row-main"><p class="row-t">'+(i+1)+'. '+x.n+'</p><p class="row-s">ยังไม่ได้นำเข้าข้อมูลด้านนี้</p></div><div class="big">รอข้อมูล</div></div>';
+  }).join('');
+  var leg = [['', 'ส.ส. คนนี้']];
+  if (!pres) leg.push(['dash', 'ค่ากลางของ' + (m.party || 'พรรค')], ['dot', 'ค่ากลางทั้งสภา']);
+  if (mn) leg.push(['na', 'ไม่เทียบ']);
+  return '<div class="sec"><h2 class="sec-h">ภาพรวมการทำงาน 5 ด้าน</h2><p class="sec-c">ตอนนี้มีข้อมูลจริงเฉพาะด้านที่ 1 อีก 4 ด้านเขียนว่า รอข้อมูล จนกว่าจะนำเข้า ไม่มีการเติมตัวเลขสมมติ</p>' +
+    '<div class="card">'+radarSVG({label:'กราฟ 5 ด้านของ '+m.name+' มีข้อมูลเฉพาะด้านการทำหน้าที่ในสภา ตัวเลขแสดงด้านล่าง', na:na, pend:pend, txt:txt, layers:layers}) +
+      legend(leg) + '<p class="cap">รูปทรงไม่ใช่คะแนนรวม ดูตัวเลขรายด้านประกอบ</p>' +
+      (mn ? '<div class="note" style="margin-top:12px"><p class="note-t">ด้านที่ 3–4 ไม่นำมาเทียบ</p><p>คนนี้เป็นรัฐมนตรี ซึ่งไม่ตั้งกระทู้และไม่นั่งในกรรมาธิการตามปกติ สองด้านนี้จึงเทียบกับ ส.ส. คนอื่นไม่ได้ และไม่ได้แปลว่าทำได้น้อย</p></div>' : '') +
+      (pres ? '<div class="note" style="margin-top:12px"><p class="note-t">ไม่แสดงเส้นเทียบ</p><p>'+PRESIDE_NOTE+'</p></div>' : '') +
+    '</div>' +
+    '<div class="list" style="margin-top:12px" role="list" aria-label="ตัวเลขรายด้าน">'+rows+'</div>' +
+    (pres ? '' : '<p class="row-s" style="margin-top:8px">ใกล้เคียง = ต่างกันไม่เกิน 5 · ค่ากลาง ไม่ใช่ค่าเฉลี่ย · ค่ากลางพรรคไม่นับประธาน/รองประธานสภาและรัฐมนตรี · ค่ากลางสภาไม่นับประธาน/รองประธานสภา</p>') +
+  '</div>';
+}
+function mpCounts(m, has){
+  var a = m.att || {};
+  if (!has) return '<div class="sec"><h2 class="sec-h">การมาประชุมและลงมติ</h2>'+waitNote('รอนำเข้าข้อมูลการลงมติ', 'ยังไม่มีการลงมติที่นับได้ของ ส.ส. คนนี้')+'</div>';
+  var tot = a.eligible, w = function(n){ return (isNum(n) && tot ? n / tot * 100 : 0).toFixed(1) + '%'; };
+  return '<div class="sec"><h2 class="sec-h">การมาประชุมและลงมติ</h2><p class="sec-c">นับจาก '+fmt(tot)+' ครั้งที่มีสิทธิ์ลงมติ ไม่มีการจัดอันดับ 1–500</p>' +
+    '<div class="card"><div class="att" role="img" aria-label="ลงมติ '+fmt(a.voted)+' อยู่แต่ไม่ลงคะแนน '+fmt(a.novote)+' ลาหรือขาด '+fmt(a.absent)+'"><i class="s1" style="width:'+w(a.voted)+'"></i><i class="s2" style="width:'+w(a.novote)+'"></i><i class="s3" style="width:'+w(a.absent)+'"></i></div>' +
+      '<div class="leg"><span class="sw s1"></span>ลงมติ<span class="n">'+fmt(a.voted)+' / '+fmt(tot)+'</span></div>' +
+      '<div class="leg"><span class="sw s2"></span>อยู่แต่ไม่ลงคะแนน<span class="n">'+fmt(a.novote)+'</span></div>' +
+      '<div class="leg"><span class="sw s3"></span><span>ลา/ขาดลงมติ<br><small style="color:var(--ink-2)">'+ABSENT_NOTE+'</small></span><span class="n">'+fmt(a.absent)+'</span></div>' +
+    '</div>' +
+    '<div class="note" style="margin-top:12px"><p class="note-t">ไม่นำมาคิด แต่แสดงไว้ให้เห็น</p>' +
+      '<div class="leg" style="font-size:15px">ตัดออก (ไม่แสดงตนพร้อมพรรค)<span class="n">'+fmt(a.excluded)+'</span></div>' +
+      '<p>การไม่แสดงตนพร้อมพรรคเป็นมติร่วมของพรรค จึงไม่นับเป็นการขาดของคนใดคนหนึ่ง</p></div>' +
+  '</div>';
+}
+function mpMonthly(m){
+  var mo = m.monthly && typeof m.monthly === 'object' ? m.monthly : {};
+  var keys = Object.keys(mo).filter(function(k){ return /^\d{4}-\d{2}$/.test(k) && isNum(mo[k]); }).sort();
+  var head = '<div class="sec"><h2 class="sec-h">รายเดือน</h2><p class="sec-c">อัตราการลงมติของ ส.ส. คนนี้แต่ละเดือน เส้นจุดคือทั้งสภา</p>';
+  if (!keys.length) return head + waitNote('รอนำเข้าข้อมูลการลงมติ', 'ยังไม่มีข้อมูลรายเดือนของ ส.ส. คนนี้') + '</div>';
+  var house = Object.create(null); BYM.forEach(function(x){ if (x && x.period) house[x.period] = x.houseRate; });
+  var spark = lineChart({periods:keys, series:[{vals:keys.map(function(k){ return mo[k]; }), kind:'solid'}, {vals:keys.map(function(k){ return house[k]; }), kind:'dot'}], lo:0, hi:100, h:120, few:keys.map(function(k){ return isNum(EVC[k]) && EVC[k] < FEW; }), label:'กราฟอัตราการลงมติรายเดือนของ '+m.name});
+  var rows = keys.map(function(k){ var few = isNum(EVC[k]) && EVC[k] < FEW; return '<tr><td>'+thPeriod(k)+'</td><td>'+(isNum(EVC[k]) ? fmt(EVC[k])+' มติ' : '')+(few ? ' <span class="chip few">ข้อมูลน้อย</span>' : '')+'</td><td>'+p1(mo[k])+'%</td></tr>'; }).join('');
+  return head + '<div class="card">'+spark+'<table class="mtable ttable"><tbody>'+rows+'</tbody></table></div><p class="row-s" style="margin-top:8px">ข้อมูลน้อย = เดือนที่มีการลงมติน้อยกว่า '+FEW+' ครั้ง ตัวเลขจึงแกว่งได้มาก</p></div>';
+}
+
+/* ---------- line chart (plain SVG, monochrome) ---------- */
+function lineChart(o){
+  var W = o.small ? 150 : 320, H = o.h || (o.small ? 90 : 170), L = o.small ? 6 : 34, Rr = o.small ? 6 : 10, T = 10, B = o.small ? 10 : 34;
+  var n = o.periods.length, lo = o.lo, hi = o.hi;
+  function X(i){ return n === 1 ? (L + (W - Rr)) / 2 : L + i * (W - L - Rr) / (n - 1); }
+  function Y(v){ return T + (hi - v) / (hi - lo) * (H - T - B); }
+  var h = '<svg class="lchart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+esc(o.label || '')+'">';
+  [lo, (lo + hi) / 2, hi].forEach(function(g){ h += '<line x1="'+L+'" x2="'+(W - Rr)+'" y1="'+Y(g).toFixed(1)+'" y2="'+Y(g).toFixed(1)+'" style="stroke:var(--hair);stroke-width:1"/>'; if (!o.small) h += '<text x="'+(L - 6)+'" y="'+(Y(g) + 4).toFixed(1)+'" text-anchor="end" style="fill:var(--ink-3);font-size:11px">'+Math.round(g)+'%</text>'; });
+  if (!o.small) {
+    /* short month labels; year only on the first label and where the year changes; thinned above 6 points */
+    var step = n > 6 ? Math.ceil(n / 6) : 1, shown = [];
+    for (var si = 0; si < n; si += step) shown.push(si);
+    if (shown[shown.length - 1] !== n - 1 && (n - 1) - shown[shown.length - 1] >= step / 2 + 0.5) shown.push(n - 1);
+    var prevY = null;
+    shown.forEach(function(i){
+      var m = /^(\d{4})(?:-(\d{2}))?$/.exec(String(o.periods[i] || '')); if (!m) return;
+      var yr = +m[1] + 543, anc = n > 1 && i === n - 1 ? 'end' : (n > 1 && i === 0 ? 'start' : 'middle');
+      var top = m[2] ? TM[+m[2] - 1] : String(yr), sub = m[2] && yr !== prevY ? String(yr) : '';
+      prevY = yr;
+      h += '<text x="'+X(i).toFixed(1)+'" y="'+(H - B + 14)+'" text-anchor="'+anc+'" style="fill:var(--ink-3);font-size:11px">'+top+'</text>';
+      if (sub) h += '<text x="'+X(i).toFixed(1)+'" y="'+(H - B + 27)+'" text-anchor="'+anc+'" style="fill:var(--ink-3);font-size:10px">'+sub+'</text>';
+    });
+  }
+  o.series.forEach(function(s){
+    var segs = [], cur = [];
+    s.vals.forEach(function(v, i){ if (isNum(v)) cur.push(X(i).toFixed(1)+','+Y(Math.max(lo, Math.min(hi, v))).toFixed(1)); else { if (cur.length) segs.push(cur); cur = []; } });
+    if (cur.length) segs.push(cur);
+    var st = s.kind === 'dot' ? 'stroke:var(--ink);stroke-width:2;stroke-dasharray:0.1 4.2;stroke-linecap:round' : 'stroke:var(--ink);stroke-width:'+(o.small ? 2 : 2.4)+';stroke-linejoin:round';
+    segs.forEach(function(sg){ if (sg.length > 1) h += '<polyline points="'+sg.join(' ')+'" style="fill:none;'+st+'"/>'; });
+    if (s.kind !== 'dot') s.vals.forEach(function(v, i){ if (!isNum(v)) return; var few = o.few && o.few[i]; h += '<circle cx="'+X(i).toFixed(1)+'" cy="'+Y(Math.max(lo, Math.min(hi, v))).toFixed(1)+'" r="'+(o.small ? 2.5 : 3.5)+'" style="fill:'+(few ? 'var(--card)' : 'var(--ink)')+';stroke:var(--ink);stroke-width:1.6"/>'; });
+  });
+  return h + '</svg>';
+}
+
+/* =====================================================================
+   ALL-PARTY participation, HOUSE overview, TREND
+   ===================================================================== */
+function renderAtt(){
+  var withA = RP.some(function(p){ return p.attendance && isNum(p.attendance.rate); });
+  var rows = RP.map(function(p){
+    var a = p.attendance, ok = a && isNum(a.rate);
+    return '<button class="row" '+goAttr('party/'+encodeURIComponent(p.name))+'><div class="row-main"><div class="status-hd"><p class="row-t">'+esc(p.name)+'</p>'+(ok ? '<span class="pct">'+p1(a.rate)+'%</span>' : '')+'</div><p class="row-s">'+(isNum(p.seats) ? p.seats+' ที่นั่ง' : 'ยังไม่มีข้อมูลที่นั่ง')+(ok ? '' : ' · รอนำเข้าข้อมูลการลงมติ')+'</p>'+(ok ? attBar(a.rate, HRATE) : '<div class="abar hatch" aria-hidden="true"></div>')+'</div>'+CHEV+'</button>';
+  }).join('');
+  var v = attPct(SP.att), hv = attPct(HOUSE_SAMPLE);
+  document.getElementById('s-att').innerHTML = bar(true) +
+  '<div class="scroll">' +
+    '<h1 class="mtitle">การทำหน้าที่ในสภา ทุกพรรค</h1>' +
+    '<p class="lead">ส.ส. ของแต่ละพรรคมาลงมติกี่เปอร์เซ็นต์ของครั้งที่ควรลง ไม่นับมติที่พรรคไม่แสดงตนพร้อมกัน</p>' +
+    '<p class="sec-c" style="font-weight:600;color:var(--ink)">เรียงตามจำนวนที่นั่ง ไม่ใช่การจัดอันดับ</p>' +
+    (RP.length ? '<div class="list">'+rows+'</div>' : '') +
+    (withA && HRATE != null ? '<p class="row-s" style="margin-top:10px"><span class="hl" aria-hidden="true"></span>เส้นตั้ง = ทั้งสภา '+p1(HRATE)+'%</p>' : waitNote('รอนำเข้าข้อมูลการลงมติ', 'ยังไม่มีตัวเลขของพรรคใด เส้นตั้งของทั้งสภาจะแสดงพร้อมกันเมื่อนำเข้าข้อมูล')) +
+    '<div class="sec"><h2 class="sec-h">วิธีอ่าน</h2>'+sampleStripe() +
+      '<div class="list"><button class="row" '+goAttr('sample/party')+'><div class="row-main"><div class="status-hd"><p class="row-t">พรรคตัวอย่าง</p><span class="pct">'+p1(v)+'%</span></div><p class="row-s">'+SP.seats+' ที่นั่ง</p>'+attBar(v, hv)+'</div>'+CHEV+'</button></div>' +
+      '<p class="row-s" style="margin-top:10px"><span class="hl" aria-hidden="true"></span>เส้นตั้ง = ทั้งสภา '+p1(hv)+'% (สมมติ)</p>' +
+    '</div>' +
+    '<button class="tbtn" style="margin-top:14px" data-tab-go="method">ดูวิธีคิดเปอร์เซ็นต์นี้</button>' +
+    foot() +
+  '</div>';
+}
+function tile(name, seats, route, radar, foot2){
+  return '<button class="tile" '+goAttr(route)+'><span class="tile-t">'+esc(String(name).replace(/^พรรค/, ''))+'</span><span class="tile-s">'+(isNum(seats) ? seats+' ที่นั่ง' : 'ยังไม่มีข้อมูลที่นั่ง')+'</span>'+radar+'<span class="tile-s">'+foot2+'</span></button>';
+}
+function renderHouse(){
+  var hm = houseMedVals(HOUSE_RATE_MED);
+  var tiles = RP.map(function(p){
+    var pm = partyMed(p.name);
+    var r = isNum(pm) ? radarSVG({small:true, label:p.name+' ค่ากลาง '+p1(pm)+'% เทียบค่ากลางทั้งสภา', pend:PEND4, layers:[{vals:oneAxis(pm), kind:'fill'}, {vals:oneAxis(HMED), kind:'dot'}]}) : radarSVG({small:true, label:p.name+' รอนำเข้าข้อมูล', layers:[]});
+    return tile(p.name, p.seats, 'party/'+encodeURIComponent(p.name), r, isNum(pm) ? 'ค่ากลาง '+p1(pm)+'%' : 'รอนำเข้าข้อมูล');
+  }).join('');
+  var real = HMED != null
+    ? '<div class="card">'+radarSVG({label:'ค่ากลางทั้งสภา '+p1(HMED)+'% ด้านเดียวที่มีข้อมูล', pend:PEND4, txt:[p1(HMED)+'%','รอข้อมูล','รอข้อมูล','รอข้อมูล','รอข้อมูล'], layers:[{vals:oneAxis(HMED), kind:'dot'}]}) + legend([['dot','ค่ากลางทั้งสภา']]) +
+      '<p class="row-s" style="margin-top:8px">ค่ากลางอัตราการลงมติของ ส.ส. ทั้งสภา '+p1(HMED)+'% (ไม่นับประธาน/รองประธานสภา) · อีก 4 ด้านรอข้อมูล</p></div>'
+    : '<div class="card"><p class="row-t">รอนำเข้าข้อมูล</p><p class="row-s">กราฟค่ากลางทั้งสภาจะแสดงเมื่อนำเข้าข้อมูลรอบแรก</p>'+radarSVG({small:true, label:'ยังไม่มีข้อมูล', layers:[]})+'</div>';
+  document.getElementById('s-house').innerHTML = bar(true) +
+  '<div class="scroll">' +
+    '<h1 class="mtitle">ภาพรวมทั้งสภา</h1><p class="lead">ค่ากลางของ ส.ส. ทั้งสภาบน 5 ด้าน และของแต่ละพรรคเทียบกัน ใช้สเกลเดียวกันทุกกราฟ</p>' + real +
+    (RP.length ? '<div class="sec"><h2 class="sec-h">แยกตามพรรค</h2><p class="sec-c" style="font-weight:600;color:var(--ink)">เรียงตามจำนวนที่นั่ง ไม่ใช่การจัดอันดับ</p><div class="tiles">'+tiles+'</div>'+legend([['','ค่ากลางของ ส.ส. ในพรรค'], ['dot','ค่ากลางทั้งสภา']])+'</div>' : '') +
+    '<div class="sec"><h2 class="sec-h">วิธีอ่าน · เมื่อมีข้อมูลครบ 5 ด้าน</h2>'+sampleStripe() +
+      '<div class="card">'+radarSVG({label:'กราฟค่ากลางทั้งสภา (สมมติ)', txt:hm.map(function(v, i){ return i === 0 ? v+'%' : String(v); }), layers:[{vals:hm, kind:'dot'}]}) + legend([['dot','ค่ากลางทั้งสภา']]) +
+      '<p class="row-s" style="margin-top:8px">ด้านที่ 2–5 ค่ากลางทั้งสภาอยู่ที่ 50 เสมอ เพราะเป็นเปอร์เซ็นไทล์</p></div>' +
+      '<div class="tiles" style="margin-top:12px">'+tile(SP.name, SP.seats, 'sample/party', radarSVG({small:true, label:'พรรคตัวอย่าง เทียบค่ากลางทั้งสภา (สมมติ)', layers:[{vals:SP.mpMed, kind:'fill'}, {vals:hm, kind:'dot'}]}), 'แตะเพื่อดูรายด้าน')+'</div>' +
+    '</div>' +
+    '<button class="tbtn" style="margin-top:14px" data-tab-go="method">ดูวิธีคิด</button>' +
+    foot() +
+  '</div>';
+}
+var trendMode = 'month';
+function renderTrend(){
+  var rows = (trendMode === 'year' ? BYY : BYM).filter(function(x){ return x && x.period; });
+  var tog = '<div class="filters" role="group" aria-label="ช่วงเวลา"><button class="fchip" data-trend="month" aria-pressed="'+(trendMode === 'month')+'">รายเดือน</button><button class="fchip" data-trend="year" aria-pressed="'+(trendMode === 'year')+'">รายปี</button></div>';
+  var body;
+  if (!rows.length) body = waitNote('รอนำเข้าข้อมูลการลงมติ', 'ยังไม่มีข้อมูลการลงมติให้แสดงแนวโน้ม');
+  else {
+    var periods = rows.map(function(x){ return x.period; });
+    var few = rows.map(function(x){ return isNum(x.eventCount) && x.eventCount < FEW; });
+    var pn = RP.filter(function(p){ return rows.some(function(x){ return own(x.parties, p.name) && isNum(x.parties[p.name]); }); });
+    var all = []; rows.forEach(function(x){ if (isNum(x.houseRate)) all.push(x.houseRate); pn.forEach(function(p){ var v = own(x.parties, p.name) ? x.parties[p.name] : null; if (isNum(v)) all.push(v); }); });
+    var lo = all.length ? Math.max(0, Math.floor((Math.min.apply(null, all) - 5) / 10) * 10) : 0;
+    var houseVals = rows.map(function(x){ return x.houseRate; });
+    body = '<div class="card"><p class="row-t">ทั้งสภา</p>'+lineChart({periods:periods, series:[{vals:houseVals, kind:'solid'}], lo:lo, hi:100, few:few, label:'แนวโน้มอัตราการลงมติของทั้งสภา'}) +
+      '<p class="row-s">จุดโปร่ง = ข้อมูลน้อย (การลงมติน้อยกว่า '+FEW+' ครั้งในช่วงนั้น) · แกนตั้งเริ่มที่ '+lo+'%</p></div>';
+    if (pn.length) body += '<div class="sec"><h2 class="sec-h">แยกตามพรรค</h2><p class="sec-c" style="font-weight:600;color:var(--ink)">เรียงตามจำนวนที่นั่ง ไม่ใช่การจัดอันดับ</p><p class="sec-c">ทุกกราฟใช้สเกลเดียวกัน ('+lo+'–100%) เส้นจุดคือทั้งสภา</p><div class="tiles">' +
+      pn.map(function(p){
+        var vals = rows.map(function(x){ return own(x.parties, p.name) ? x.parties[p.name] : null; }), last = null;
+        vals.forEach(function(v){ if (isNum(v)) last = v; });
+        return '<button class="tile" '+goAttr('party/'+encodeURIComponent(p.name))+'><span class="tile-t">'+esc(p.name.replace(/^พรรค/, ''))+'</span><span class="tile-s">ล่าสุด '+p1(last)+'%</span>'+lineChart({small:true, periods:periods, series:[{vals:houseVals, kind:'dot'}, {vals:vals, kind:'solid'}], lo:lo, hi:100, few:few, label:p.name+' เทียบทั้งสภา'})+'</button>';
+      }).join('') + '</div>' + legend([['', 'พรรค'], ['dot', 'ทั้งสภา']]) + '</div>';
+    var th = '<tr><th>ช่วง</th><th>มติ</th><th>ทั้งสภา</th>'+pn.map(function(p){ return '<th>'+esc(p.name.replace(/^พรรค/, ''))+'</th>'; }).join('')+'</tr>';
+    var tr = rows.map(function(x, i){ return '<tr><td>'+thPeriod(x.period)+(few[i] ? '<br><span class="chip few">ข้อมูลน้อย</span>' : '')+'</td><td>'+fmt(x.eventCount)+'</td><td>'+p1(x.houseRate)+'%</td>'+pn.map(function(p){ var v = own(x.parties, p.name) ? x.parties[p.name] : null; return '<td>'+(isNum(v) ? p1(v)+'%' : '—')+'</td>'; }).join('')+'</tr>'; }).join('');
+    body += '<div class="sec"><h2 class="sec-h">ตัวเลขทั้งหมด</h2><p class="sec-c">เลื่อนตารางไปทางขวาเพื่อดูทุกพรรค</p><div class="tscroll" tabindex="0" role="region" aria-label="ตารางตัวเลขรายช่วง"><table class="dtable"><thead>'+th+'</thead><tbody>'+tr+'</tbody></table></div></div>';
+    var hist = HIST.filter(function(x){ return x && x.month && isNum(x.houseRate); });
+    if (hist.length > 1) body += '<div class="sec"><h2 class="sec-h">ตัวเลขทั้งสภาที่เคยเผยแพร่</h2><p class="sec-c">บันทึกไว้ทุกครั้งที่อัปเดต เพื่อให้ตรวจย้อนหลังได้</p><div class="list">'+hist.map(function(x){ return '<div class="fact"><p class="fact-l">รอบ '+thPeriod(x.month)+'</p><p class="fact-v">'+p1(x.houseRate)+'%'+(isNum(x.eventCount) ? ' · '+fmt(x.eventCount)+' มติ' : '')+'</p></div>'; }).join('')+'</div></div>';
+  }
+  document.getElementById('s-month').innerHTML = bar(false) +
+  '<div class="scroll">' +
+    '<h1 class="ltitle">รายเดือน</h1><p class="lead">อัตราการลงมติของทั้งสภาและแต่ละพรรค ดูว่าขยับขึ้นหรือลงแค่ไหน</p>' + tog + body +
+    foot() +
+  '</div>';
+}
+
+/* =====================================================================
+   SAMPLE PAGES (fictional, striped) — the "วิธีอ่าน" demo
+   ===================================================================== */
+function renderSampleParty(){
+  var p = SP, dims = GOV_DIMS;
+  var dimRows = dims.map(function(d, i){
+    var x = p.dims[i], k = ev({label:d.n, value:x.v+(x.u === '%' ? '%' : ' จาก 100'), src:x.src, ref:x.ref, note:x.sub, sample:true});
+    return '<button class="dim" data-ev="'+k+'"><div class="row-main"><p class="row-t">'+d.n+'</p><p class="row-s">'+x.sub+'</p><div class="bar-track" aria-hidden="true"><i style="width:'+x.v+'%"></i></div><span class="evl">ดูหลักฐาน</span></div><div class="dim-v"><div class="big">'+x.v+'<small>'+x.u+'</small></div></div></button>';
+  }).join('');
+  var c = [0,0,0,0,0]; p.promises.forEach(function(x){ c[x.st]++; });
+  var proms = '<div class="list">'+p.promises.map(function(x, i){
+    return '<button class="row" '+goAttr('sample/promise/'+i)+'><div class="row-main"><p class="row-t">'+x.t+'</p><p class="row-s">ขั้น '+x.st+' · '+esc(STEP[x.st].n)+(x.tag ? ' · <b style="color:var(--ink)">'+x.tag+'</b>' : '')+'</p>'+steps(x.st)+'</div>'+CHEV+'</button>';
+  }).join('')+'</div>';
+  document.getElementById('s-party').innerHTML = bar(true) +
+  '<div class="scroll">' + sampleStripe() +
+    '<p class="eyebrow">สมุดพกพรรค</p><h1 class="ltitle">'+p.name+'</h1><p class="meta">'+p.seats+' ที่นั่ง · '+sideName(p.side)+'</p>' +
+    '<div class="sec"><h2 class="sec-h">ผลงานแยกทีละด้าน</h2><p class="sec-c">ไม่มีเกรดรวม เพราะแต่ละด้านวัดคนละเรื่อง ใช้ตัวชี้วัดชุดฝ่ายรัฐบาล '+GOV_DIMS.length+' ด้าน</p><div class="list">'+dimRows+'</div>' +
+      '<div class="note" style="margin-top:12px"><p class="note-t">ผลลัพธ์ที่เกิดขึ้นจริง</p><p>'+p.outcome+' · ใช้เป็นบริบทเท่านั้น ไม่นำมาคิดคะแนน เพราะผลลัพธ์มีปัจจัยอื่นที่พรรคควบคุมไม่ได้</p></div>' +
+      '<div class="card" style="margin-top:12px"><p class="row-t">อยากเห็นคะแนนรวมไหม</p><p class="row-s">เราไม่ตั้งคะแนนรวมให้ เพราะคนแต่ละคนให้น้ำหนักแต่ละด้านไม่เท่ากัน คุณตั้งน้ำหนักเองได้</p><button class="tbtn" data-sheet="weights">ตั้งน้ำหนักเอง</button></div></div>' +
+    sampleAtt() + sampleRadarParty() +
+    '<div class="sec"><h2 class="sec-h">คำสัญญาที่ติดตาม 12 ข้อ</h2><p class="sec-c">'+esc(STEP[4].n)+' '+c[4]+' · '+esc(STEP[3].n)+' '+c[3]+' · '+esc(STEP[2].n)+' '+c[2]+' · '+esc(STEP[1].n)+' '+c[1]+' · '+esc(STEP[0].n)+' '+c[0]+'</p>'+proms+'</div>' +
+    '<div class="sec">'+replyBox(p.reply)+'</div>' +
+    foot() +
+  '</div>';
+}
+function sampleAtt(){
+  var p = SP, a = p.att, h = HOUSE_SAMPLE, v = attPct(a), hv = attPct(h);
+  var k = ev({label:'การทำหน้าที่ในสภาของ'+p.name, value:p1(v)+'%', src:VOTE_SRC, ref:fmt(a.cast)+' ÷ ('+fmt(a.elig)+' − '+fmt(a.leave)+' − '+fmt(a.walk)+') × 100 (สมมติ)', note:'ทั้งสภา '+fmt(h.cast)+' ÷ ('+fmt(h.elig)+' − '+fmt(h.leave)+' − '+fmt(h.walk)+') × 100 = '+p1(hv)+'%', sample:true});
+  return '<div class="sec"><h2 class="sec-h">การทำหน้าที่ในสภา</h2><p class="sec-c">ส.ส. ทั้งพรรคมาลงมติกี่เปอร์เซ็นต์ของครั้งที่ควรลง รวมทุกคนเป็นตัวเลขเดียว</p>' +
+    '<div class="card"><div class="status-hd"><div><p class="eyebrow" style="margin:0">'+p.name+'</p><div class="big">'+p1(v)+'<small>%</small></div></div><div style="text-align:right"><p class="eyebrow" style="margin:0">ทั้งสภา</p><div class="big" style="color:var(--ink-2)">'+p1(hv)+'<small>%</small></div></div></div>' +
+    attBar(v, hv) + '<p class="row-s" style="margin-top:8px"><span class="hl" aria-hidden="true"></span>เส้นตั้ง = ทั้งสภา '+p1(hv)+'%</p>' +
+    '<dl class="kv"><dt>ลงมติ</dt><dd>'+fmt(a.cast)+' ครั้ง</dd><dt>ครั้งที่นับ</dt><dd>'+fmt(attDen(a))+' ครั้ง</dd><dt>ลาตามระเบียบ</dt><dd>'+fmt(a.leave)+' ครั้ง · ไม่นับ</dd><dt>ไม่แสดงตนพร้อมพรรค</dt><dd>'+fmt(a.walk)+' ครั้ง ('+a.walkVotes+' มติ × '+a.mps+' คน) · ไม่นับ</dd></dl>' +
+    '<button class="evbtn" data-ev="'+k+'"><b>ดูหลักฐานและสูตร</b><span>รวม ส.ส. '+a.mps+' คน · '+a.votes+' มติ</span></button></div>' +
+    '<button class="tbtn" style="margin-top:10px" '+goAttr('att')+'>เทียบทุกพรรค</button></div>';
+}
+function sampleRadarParty(){
+  var p = SP, pm = p.mpMed, hm = houseMedVals(HOUSE_RATE_MED);
+  var rows = AXES.map(function(x, i){
+    var k = ev({label:'ค่ากลางของ '+p.name+' · '+x.n, value:pm[i]+(i === 0 ? '%' : ' จาก 100'), src:'คำนวณจากข้อมูล ส.ส. ทั้ง '+p.seats+' คนของพรรค', ref:'ค่ากลาง (median) ของ ส.ส. ในพรรค'+(i === 2 || i === 3 ? ' ไม่นับรัฐมนตรี' : '')+' (สมมติ)', note:'ค่ากลางทั้งสภา '+hm[i], sample:true});
+    return '<button class="vrow" data-ev="'+k+'"><div class="row-main"><p class="row-t">'+(i+1)+'. '+x.n+'</p><p class="row-s" style="color:var(--ink);font-weight:500">'+cmpWord(pm[i], hm[i], 'ค่ากลางสภา')+'</p></div><div class="big">'+pm[i]+(i === 0 ? '%' : '<small>/100</small>')+'</div></button>';
+  }).join('');
+  return '<div class="sec"><h2 class="sec-h">ส.ส. ของพรรคนี้โดยรวม เทียบกับทั้งสภา</h2><p class="sec-c">ค่ากลางของ ส.ส. ในพรรค บน 5 ด้านเดียวกับหน้า ส.ส.</p><div class="card">' +
+    radarSVG({label:'กราฟค่ากลางของ ส.ส. '+p.name+' เทียบค่ากลางทั้งสภา ตัวเลขแสดงด้านล่าง', txt:pm.map(function(v, i){ return i === 0 ? v+'%' : String(v); }), layers:[{vals:pm, kind:'fill'}, {vals:hm, kind:'dot'}]}) +
+    legend([['','ค่ากลางของ ส.ส. '+p.name], ['dot','ค่ากลางทั้งสภา']]) + '<p class="cap">รูปทรงไม่ใช่คะแนนรวม ดูตัวเลขรายด้านประกอบ</p></div>' +
+    '<div class="list" style="margin-top:12px">'+rows+'</div><p class="row-s" style="margin-top:8px">ใกล้เคียง = ต่างกันไม่เกิน 5 · ด้านที่ 3–4 ไม่นับรัฐมนตรีของพรรค</p></div>';
+}
+function renderSamplePromise(i){
+  var p = SP, x = p.promises[+i]; if (!x) return notFound();
+  var costK = ev({label:'วงเงินตามเอกสาร', value:x.c, src:'เอกสารนโยบายที่พรรคตัวอย่างยื่นต่อ กกต.', ref:'หน้า '+x.p+' (สมมติ)', sample:true});
+  var dates = ['','12 มี.ค. 2569','28 เม.ย. 2569','18 ก.ย. 2569','1 ต.ค. 2569'];
+  var srcs = ['','คำแถลงนโยบายต่อรัฐสภา','มติคณะรัฐมนตรี','ราชกิจจานุเบกษา','รายงานผลการดำเนินงานของหน่วยงาน'];
+  var refs = ['','หน้า 14','เรื่องที่ 27','เล่ม 143 ตอนพิเศษ 210 ง','ไตรมาส 3/2569'];
+  var ladder = '';
+  for (var j = 0; j <= 4; j++) {
+    var cls = j < x.st ? 'done' : (j === x.st ? 'done now' : ''), evb = '';
+    if (j > 0 && j <= x.st) { var k = ev({label:'ขั้น '+j+' · '+STEP[j].n, value:dates[j], src:srcs[j], ref:refs[j]+' (สมมติ)', sample:true}); evb = '<button class="evbtn" data-ev="'+k+'"><b>'+srcs[j]+'</b><span>'+dates[j]+' · '+refs[j]+'</span></button>'; }
+    ladder += '<li class="lstep '+cls+'"><span class="dot">'+j+'</span><div class="lbody"><p class="lname">'+esc(STEP[j].n)+' <span style="color:var(--ink-2);font-weight:500">· '+STEP[j].s+' คะแนน</span></p>'+evb+'</div></li>';
+  }
+  var head = '<div class="card" style="margin-top:16px"><div class="status-hd"><div><p class="eyebrow" style="margin:0">สถานะตอนนี้</p><p class="mtitle" style="margin:0">ขั้น '+x.st+' · '+esc(STEP[x.st].n)+'</p></div><div class="big">'+STEP[x.st].s+'<small> คะแนน</small></div></div>'+steps(x.st) +
+    (x.tag ? '<div style="margin-top:14px"><span class="chip tag">'+x.tag+'</span><p class="mp">'+x.tagd+'</p></div>' : '') + '</div>';
+  document.getElementById('s-promise').innerHTML = bar(true) +
+  '<div class="scroll">' + sampleStripe() +
+    '<p class="eyebrow">คำสัญญาของพรรคตัวอย่าง</p><h1 class="mtitle">'+x.t+'</h1>' +
+    '<button class="evbtn" data-ev="'+costK+'" style="margin-top:4px"><b>วงเงิน: '+x.c+'</b><span>ตามเอกสารที่ยื่นต่อ กกต. หน้า '+x.p+' · กดดูต้นฉบับ</span></button>' + head +
+    '<div class="sec"><h2 class="sec-h">บันไดสถานะ</h2><p class="sec-c">ขยับขึ้นได้ทีละขั้น เมื่อมีเอกสารทางการยืนยันเท่านั้น</p><div class="card"><ol class="ladder">'+ladder+'</ol></div></div>' +
+    '<div class="sec">'+replyBox(x.tag === 'ปรับลด' ? p.reply : '')+'</div>' +
+    foot() +
+  '</div>';
+}
+var flagFilter = 'ทั้งหมด';
+function sampleAxes(m){
+  var a = m.att, counted = a.vote + a.idle + a.absent, rate = Math.round(a.vote / counted * 100), mn = !!m.minister;
+  return AXES.map(function(x, i){
+    if (i === 0) return {x:x, v:rate, na:false, txt:rate+'%', det:'ลงมติ '+a.vote+' จาก '+counted+' ครั้งที่นับ · ค่ากลางสภา '+m.median+'%'};
+    if (mn && (x.k === 'q' || x.k === 'com')) return {x:x, v:null, na:true, txt:'ไม่เทียบ', det:'รัฐมนตรีไม่ได้ทำงานด้านนี้ตามปกติ จึงไม่นำมาเทียบ'};
+    var pc = m.pc[x.k], det;
+    if (x.k === 'com') { var c = m.com, pts = (c.n - c.roles.length) * COM_W.member + c.roles.length * COM_W.role; det = 'สมาชิก '+c.n+' คณะ'+(c.roles.length ? ' · '+c.roles.join(', ')+' '+c.roles.length+' คณะ' : '')+' = '+pts+' แต้ม · ค่ากลางสภา '+HOUSE_MED.com+' แต้ม'; }
+    else { var unit = {bills:'ฉบับ', q:'เรื่อง', deb:'ครั้ง'}[x.k]; det = m.work[x.k]+' '+unit+' ใน '+m.months+' เดือน · ค่ากลางสภา '+HOUSE_MED[x.k]+' '+unit+'/เดือน'; }
+    return {x:x, v:pc, na:false, txt:String(pc), det:det+' · มากกว่าหรือเท่ากับ ส.ส. '+pc+'% ของสภา'};
+  });
+}
+function renderSampleMP(id){
+  var m = sampleMp(id); if (!m) return notFound();
+  var a = m.att, counted = a.vote + a.idle + a.absent, rate = Math.round(a.vote / counted * 100);
+  var active = m.flags.filter(function(f){ return f.lv > 0; }), closed = m.flags.filter(function(f){ return f.lv === 0; });
+  var rateK = ev({label:'อัตราการลงมติ', value:rate+'%', src:VOTE_SRC, ref:'ลงมติ '+a.vote+' จาก '+counted+' ครั้งที่นับ (สมมติ)', note:'ค่ากลางของ ส.ส. ทั้งสภาอยู่ที่ '+m.median+'% ไม่นับวันลาตามระเบียบ และวันที่พรรคไม่แสดงตนพร้อมกันทั้งพรรค', sample:true});
+  var diffK = ev({label:'โหวตต่างจากพรรค', value:m.diff+' ครั้ง', src:VOTE_SRC, ref:'เทียบกับเสียงข้างมากของพรรคในแต่ละมติ (สมมติ)', note:'การโหวตต่างจากพรรคไม่ใช่เรื่องดีหรือไม่ดี เราแสดงไว้ให้คุณตัดสินเอง', sample:true});
+  var flagLine = active.length
+    ? '<button class="row" data-scroll="flags"><div class="row-main"><p class="row-t">มีเรื่องที่ยังไม่จบ '+active.length+' เรื่อง</p><p class="row-s">ระดับ '+active[0].lv+' · '+FLV[active[0].lv].n+' · ยังไม่ถึงที่สุด</p></div>'+CHEV+'</button>'
+    : '<div class="row" style="cursor:default"><div class="row-main"><p class="row-t">ไม่มีเรื่องที่ยังไม่จบ</p><p class="row-s">ตามที่บันทึกไว้ ณ วันที่ข้อมูล</p></div></div>';
+  var w = function(n){ return (n / counted * 100).toFixed(1) + '%'; };
+  var cats = ['ทั้งหมด','ทรัพย์สิน','การเลือกตั้ง','จริยธรรม','อาญา'];
+  var shown = active.filter(function(f){ return flagFilter === 'ทั้งหมด' || f.cat === flagFilter; });
+  var flagCards = shown.map(flagCard).join('') || (active.length ? '<div class="card empty"><p>ไม่มีเรื่องในหมวด “'+esc(flagFilter)+'”</p></div>' : '<div class="card empty"><p class="note-t">ไม่มีเรื่องที่บันทึกไว้</p><p>เราตรวจจากประกาศของ ป.ป.ช. กกต. ศาล และสภา ทุกเดือน</p></div>');
+  var diffs = m.diffs.length ? '<div class="list">'+m.diffs.map(function(d){
+      var k = ev({label:d.t, value:'โหวต “'+d.me+'”', src:VOTE_SRC, ref:d.d+' (สมมติ)', note:'เสียงข้างมากของพรรคโหวต “'+d.party+'”', sample:true});
+      return '<button class="row" data-ev="'+k+'"><div class="row-main"><p class="row-t" style="font-weight:500">'+d.t+'</p><p class="row-s">ตัวเอง: '+d.me+' · พรรค: '+d.party+' · '+d.d+'</p></div>'+CHEV+'</button>';
+    }).join('')+'</div>' : '<div class="card empty"><p>ไม่เคยโหวตต่างจากเสียงข้างมากของพรรค</p></div>';
+  document.getElementById('s-mp').innerHTML = bar(true) +
+  '<div class="scroll" id="mpScroll">' + sampleStripe() +
+    '<p class="eyebrow">สมุดพก ส.ส.</p><h1 class="ltitle">'+m.name+'</h1><p class="meta">'+m.party+' · '+m.area+'</p>' + (m.joined ? '<p class="meta" style="margin-top:2px">'+m.joined+'</p>' : '') + (m.minister ? '<p class="meta" style="margin-top:2px">'+m.minister+'</p>' : '') +
+    '<div class="list" style="margin-top:18px">' +
+      '<button class="row" data-ev="'+rateK+'"><div class="row-main"><p class="row-t">มาลงมติ '+rate+'%</p><p class="row-s">ค่ากลางของทั้งสภา '+m.median+'%</p></div>'+CHEV+'</button>' +
+      '<button class="row" data-ev="'+diffK+'"><div class="row-main"><p class="row-t">'+(m.diff ? 'โหวตต่างจากพรรค '+m.diff+' ครั้ง' : 'ไม่เคยโหวตต่างจากพรรค')+'</p><p class="row-s">จากการลงมติ '+a.vote+' ครั้ง</p></div>'+CHEV+'</button>' +
+      flagLine +
+    '</div>' +
+    sampleWork(m) +
+    '<div class="sec"><h2 class="sec-h">การมาประชุมและลงมติ</h2><p class="sec-c">นับจากการลงมติทั้งหมด '+(counted + a.leave + a.walk)+' ครั้ง ไม่มีการจัดอันดับ 1–500</p>' +
+      '<div class="card"><div class="att" role="img" aria-label="ลงมติ '+a.vote+' อยู่แต่ไม่ลงคะแนน '+a.idle+' ไม่แสดงตน '+a.absent+'"><i class="s1" style="width:'+w(a.vote)+'"></i><i class="s2" style="width:'+w(a.idle)+'"></i><i class="s3" style="width:'+w(a.absent)+'"></i></div>' +
+        '<div class="leg"><span class="sw s1"></span>ลงมติ<span class="n">'+a.vote+'</span></div>' +
+        '<div class="leg"><span class="sw s2"></span>อยู่แต่ไม่ลงคะแนน<span class="n">'+a.idle+'</span></div>' +
+        '<div class="leg"><span class="sw s3"></span>ไม่แสดงตน<span class="n">'+a.absent+'</span></div></div>' +
+      '<div class="note" style="margin-top:12px"><p class="note-t">ไม่นำมาคิด แต่แสดงไว้ให้เห็น</p>' +
+        '<div class="leg" style="font-size:15px">ลาตามระเบียบ<span class="n">'+a.leave+'</span></div>' +
+        '<div class="leg" style="font-size:15px">ไม่แสดงตนพร้อมกันทั้งพรรค<span class="n">'+a.walk+'</span></div>' +
+        '<p>การไม่แสดงตนพร้อมพรรคเป็นมติร่วมของพรรค จึงไม่นับเป็นการขาดของคนใดคนหนึ่ง</p></div>' +
+    '</div>' +
+    '<div class="sec"><h2 class="sec-h">ครั้งที่โหวตต่างจากพรรค</h2><p class="sec-c">ไม่ใช่เรื่องดีหรือไม่ดี แสดงไว้ให้คุณตัดสินเอง</p>'+diffs+'</div>' +
+    sampleFacts(m) +
+    '<div class="sec" id="flags"><h2 class="sec-h">เรื่องทางกฎหมายและจริยธรรม</h2><p class="sec-c">แสดงแยกจากผลงาน และไม่นำไปหักคะแนนใดๆ</p>' +
+      (active.length ? '<div class="filters" role="group" aria-label="กรองตามหมวด">'+cats.map(function(c){ return '<button class="fchip" data-filter="'+c+'" data-mp="'+m.id+'" aria-pressed="'+(c === flagFilter)+'">'+c+'</button>'; }).join('')+'</div>' : '') +
+      '<div class="stack">'+flagCards+'</div>' +
+      (closed.length ? '<div class="sec" style="margin-top:20px"><p class="row-t" style="margin-bottom:8px">ประวัติ · ปิดคดีแล้ว '+closed.length+' เรื่อง</p><div class="stack">'+closed.map(flagCard).join('')+'</div></div>' : '') +
+      '<button class="tbtn" style="margin-top:10px" data-sheet="legend">ความหมายของแต่ละระดับ</button>' +
+    '</div>' +
+    foot() +
+  '</div>';
+}
+function sampleWork(m){
+  var ax = sampleAxes(m), mn = !!m.minister, pm = SP.mpMed, hm = houseMedVals(m.median);
+  var vals = ax.map(function(o){ return o.na ? null : o.v; });
+  var rows = ax.map(function(o, i){
+    var cmp = o.na ? 'ไม่เทียบ' : cmpWord(o.v, pm[i], 'ค่ากลางพรรค')+' · '+cmpWord(o.v, hm[i], 'ค่ากลางสภา');
+    var k = ev({label:(i+1)+'. '+o.x.n, value:o.na ? 'ไม่เทียบ' : (i === 0 ? o.txt : o.txt+' จาก 100'), src:i === 0 ? VOTE_SRC : 'บันทึกการประชุมสภาผู้แทนราษฎร', ref:o.det+' (สมมติ)', note:o.na ? 'ไม่แสดงเป็นค่าต่ำ เพราะรัฐมนตรีไม่ตั้งกระทู้และไม่นั่งในกรรมาธิการตามปกติ' : ('ค่ากลางของพรรคตัวอย่าง '+pm[i]+' · ค่ากลางทั้งสภา '+hm[i]+(i === 0 ? ' (ร้อยละจริง)' : ' (เปอร์เซ็นไทล์)')), sample:true});
+    return '<button class="vrow'+(o.na ? ' na' : '')+'" data-ev="'+k+'"><div class="row-main"><p class="row-t">'+(i+1)+'. '+o.x.n+'</p><p class="row-s" style="color:var(--ink);font-weight:500">'+cmp+'</p><p class="row-s">'+o.det+'</p></div><div class="big">'+(i === 0 || o.na ? o.txt : o.txt+'<small>/100</small>')+'</div></button>';
+  }).join('');
+  return '<div class="sec"><h2 class="sec-h">ภาพรวมการทำงาน 5 ด้าน</h2><p class="sec-c">ด้านที่ 1 เป็นร้อยละจริง ด้านที่ 2–5 แปลงเป็นเปอร์เซ็นไทล์ เทียบกับ ส.ส. ทั้งสภา (0–100) โดยด้านที่ 2, 3, 5 คิดต่อเดือนที่ดำรงตำแหน่ง</p>' +
+    '<div class="card">'+radarSVG({label:'กราฟ 5 ด้านของ '+m.name+' เทียบค่ากลางของพรรคและทั้งสภา ตัวเลขทุกด้านแสดงเป็นข้อความด้านล่าง', na:ax.map(function(o){ return o.na; }), txt:ax.map(function(o){ return o.txt; }), layers:[{vals:vals, kind:'fill'}, {vals:pm, kind:'dash'}, {vals:hm, kind:'dot'}]}) +
+      legend([['','ส.ส. คนนี้'], ['dash','ค่ากลางของพรรคตัวอย่าง'], ['dot','ค่ากลางทั้งสภา']].concat(mn ? [['na','ไม่เทียบ']] : [])) +
+      '<p class="cap">รูปทรงไม่ใช่คะแนนรวม ดูตัวเลขรายด้านประกอบ</p>' +
+      (mn ? '<div class="note" style="margin-top:12px"><p class="note-t">ด้านที่ 3–4 ไม่นำมาเทียบ</p><p>คนนี้เป็นรัฐมนตรี ซึ่งไม่ตั้งกระทู้และไม่นั่งในกรรมาธิการตามปกติ สองด้านนี้จึงเทียบกับ ส.ส. คนอื่นไม่ได้ และไม่ได้แปลว่าทำได้น้อย</p></div>' : '') +
+    '</div>' +
+    '<div class="list" style="margin-top:12px" role="list" aria-label="ตัวเลขรายด้าน">'+rows+'</div>' +
+    '<p class="row-s" style="margin-top:8px">ใกล้เคียง = ต่างกันไม่เกิน 5 · ค่ากลางพรรคและสภาใช้ค่ากลาง ไม่ใช่ค่าเฉลี่ย และไม่นับรัฐมนตรีในด้านที่ 3–4</p>' +
+  '</div>';
+}
+function sampleFacts(m){
+  return '<div class="sec"><h2 class="sec-h">ข้อเท็จจริงประกอบ</h2><p class="sec-c">แสดงให้เห็นเท่านั้น ไม่นำไปคิดคะแนนใดๆ</p><div class="list">' +
+    '<div class="fact"><p class="fact-l">ตำแหน่งรัฐมนตรี</p><p class="fact-v">'+(m.minister ? m.minister : 'ไม่มี')+'</p></div>' +
+    '<div class="fact"><p class="fact-l">ยื่นบัญชีทรัพย์สินต่อ ป.ป.ช. ตรงเวลาหรือไม่</p><p class="fact-v">'+(m.assets.ok ? 'ตรงเวลา' : 'ไม่ตรงเวลา')+'</p><p class="row-s">'+m.assets.d+'</p>'+extLink(NACC, 'ตรวจเองที่เว็บไซต์ ป.ป.ช.')+'</div>' +
+    '<div class="fact"><p class="fact-l">ประวัติย้ายพรรค</p><p class="fact-v">'+(m.moves.length ? 'ย้าย '+m.moves.length+' ครั้ง' : 'ไม่เคยย้ายพรรค')+'</p>'+(m.moves.length ? '<p class="row-s">'+m.moves.join('<br>')+'</p>' : '')+'</div>' +
+  '</div></div>';
+}
+function flagCard(f){
+  var k = ev({label:'เอกสารต้นทาง', value:f.agency, src:f.src, ref:f.date, note:PRESUME, sample:true});
+  return '<div class="card"><div class="gap8" style="margin-top:0">'+fpill(f.lv)+'<span class="chip">'+f.cat+'</span></div>' +
+    '<p class="row-t" style="margin-top:12px">'+f.t+'</p>' +
+    '<dl class="kv"><dt>หน่วยงาน</dt><dd>'+f.agency+'</dd><dt>ขั้นตอนล่าสุด</dt><dd>'+f.stage+'</dd><dt>วันที่</dt><dd>'+f.date+'</dd><dt>สถานะ</dt><dd>'+(f.final ? 'ถึงที่สุดแล้ว' : 'ยังไม่ถึงที่สุด')+'</dd></dl>' +
+    (f.lv > 0 ? '<p class="presume">'+PRESUME+'</p>' : '') +
+    '<button class="evbtn" data-ev="'+k+'"><b>ดูเอกสารต้นทาง</b><span>'+f.src+'</span></button>' +
+    (f.lv > 0 ? '<div style="margin-top:10px">'+replyBox(f.reply, 'คำชี้แจงจากเจ้าตัว')+'</div>' : '') +
+  '</div>';
+}
+
+/* =====================================================================
+   METHOD
+   ===================================================================== */
+function renderMethod(){
+  var stepsT = STEP.map(function(s, i){ return '<tr><td>'+i+'</td><td><b>'+esc(s.n)+'</b></td><td>'+s.s+'</td></tr>'; }).join('');
+  var lv = [1,2,3,4,0].map(function(i){ return '<div style="margin-top:10px">'+fpill(i)+'<p class="mp" style="margin-top:4px">'+FLV[i].d+'</p></div>'; }).join('');
+  var B = function(t){ return '<b style="color:var(--ink)">'+t+'</b>'; };
+  document.getElementById('s-method').innerHTML = bar(false) +
+  '<div class="scroll">' +
+    '<h1 class="ltitle">วิธีคิดคะแนน</h1><p class="lead">ทุกพรรคใช้หน้าตาเดียวกัน กติกาเดียวกัน และลำดับเดียวกัน อ่านเกณฑ์ได้ครบที่นี่</p>' +
+    '<div class="stack">' +
+      '<div class="card"><p class="sec-h" style="font-size:18px">หลักการ 3 ข้อ</p><ol class="mlist"><li>'+B('กติกาเดียวกันทุกพรรค')+' ไม่มีสีพรรค ไม่มีโลโก้ ทุกพรรคเรียงตามจำนวนที่นั่ง</li><li>'+B('ไม่มีเกรดรวม')+' แสดงแยกทีละด้าน ถ้าอยากได้คะแนนรวม คุณตั้งน้ำหนักเองได้</li><li>'+B('ทุกตัวเลขมีหลักฐาน')+' กดที่ตัวเลขใดก็ได้ จะเห็นแหล่งที่มาและวิธีคำนวณ</li></ol></div>' +
+      '<div class="card"><p class="sec-h" style="font-size:18px">บันไดสถานะคำสัญญา</p><p class="mp" style="margin-bottom:8px">คำสัญญาแต่ละข้อขยับได้ทีละขั้น เมื่อมีเอกสารทางการยืนยัน ข้อที่ยังไม่มีหลักฐานอยู่ที่ขั้นแรก คำสัญญาที่ยังไม่มีแหล่งอ้างอิงที่ตรวจสอบได้จะยังไม่แสดง จนกว่าจะเพิ่มแหล่งอ้างอิง</p><table class="mtable"><tbody>'+stepsT+'</tbody></table><p class="mp">ป้ายเพิ่มเติม: '+B('ปรับลด')+' เมื่อทำจริงน้อยกว่าที่สัญญา และ '+B('กลับลำ/ยกเลิก')+' เมื่อมีมติยกเลิกอย่างเป็นทางการ</p></div>' +
+      '<div class="card"><p class="sec-h" style="font-size:18px">รัฐบาลกับฝ่ายค้าน วัดคนละชุด</p><p class="mp">'+B('ฝ่ายรัฐบาล')+' มีอำนาจทำตามสัญญาได้โดยตรง จึงวัด '+GOV_DIMS.length+' ด้าน</p><ul class="mlist">'+GOV_DIMS.map(function(d){ return '<li>'+d.n+'</li>'; }).join('')+'</ul><p class="mp">ส่วนผลลัพธ์ที่เกิดขึ้นจริง แสดงเป็นบริบทเท่านั้น ไม่คิดคะแนน</p><p class="mp" style="margin-top:12px">'+B('ฝ่ายค้าน')+' ไม่มีอำนาจบริหาร จึงวัดงานตรวจสอบและการเสนอทางเลือก '+OPP_DIMS.length+' ด้าน</p><ul class="mlist">'+OPP_DIMS.map(function(d){ return '<li>'+d.n+'</li>'; }).join('')+'</ul><p class="mp">พรรคที่ไม่อยู่ฝ่ายใดใช้ชุดเดียวกับฝ่ายค้าน</p></div>' +
+      '<div class="card"><p class="sec-h" style="font-size:18px">การมาลงมติของ ส.ส.</p><p class="mp">อัตราการลงมติ คือจำนวนครั้งที่ลงมติ หารด้วยจำนวนครั้งที่นับ แล้วเทียบกับค่ากลางของ ส.ส. ทั้งสภา</p><ul class="mlist"><li>นับ: ลงมติ · อยู่แต่ไม่ลงคะแนน · ลา/ขาดลงมติ</li><li>ไม่นับ แต่แสดงแยก: ไม่แสดงตนพร้อมพรรค</li><li>ตัวเลือกการลงคะแนนที่ระบบอ่านไม่ออกจะไม่นับเป็นการลงมติ ถ้ามีมากเกินไป ระบบจะหยุดการคำนวณรอบนั้น</li><li>มติที่เสียงข้างมากของพรรคเท่ากัน จะไม่นำมานับใน “ลงมติต่างจากพรรค”</li></ul><p class="mp">ประธานและรองประธานสภาตามธรรมเนียมไม่ลงมติ จึงนับเฉพาะรายคน ไม่นำไปรวมในอัตราของพรรค อัตราทั้งสภา หรือค่ากลาง เราไม่จัดอันดับ ส.ส. 1 ถึง 500 เพราะต่างกันไม่กี่ครั้งก็ทำให้อันดับห่างกันมาก</p></div>' +
+      '<div class="card"><p class="sec-h" style="font-size:18px">การทำหน้าที่ในสภาของพรรค</p><p class="mp">รวม ส.ส. ทุกคนของพรรคเป็นตัวเลขเดียว ใช้เป็นคะแนนหนึ่งด้านทั้งฝ่ายรัฐบาลและฝ่ายค้าน</p>' +
+        '<p class="formula">ครั้งที่ ส.ส. ทุกคนของพรรคลงมติ ÷ (ครั้งที่มีสิทธิ์ลงมติ − ลาตามระเบียบ − ไม่แสดงตนพร้อมพรรค) × 100</p>' +
+        '<p class="mp">'+B('ตอนนี้')+' แหล่งข้อมูลยังแยกการลาตามระเบียบออกจากการขาดไม่ได้ จึงยังนับรวมอยู่ในครั้งที่นับในชื่อ “ลา/ขาดลงมติ” เมื่อแยกได้จะตัดออกตามสูตร</p>' +
+        '<p class="mp" style="margin-top:12px">'+B('ทำไมไม่นับสองอย่างนี้')+'</p><ul class="mlist"><li>'+B('ลาตามระเบียบ')+' คือการลาที่ข้อบังคับการประชุมอนุญาต เช่น ป่วย หรือไปราชการ ไม่ใช่การละทิ้งหน้าที่</li><li>'+B('ไม่แสดงตนพร้อมพรรค')+' คือพรรคตัดสินใจร่วมกันไม่ลงมติในมตินั้น เป็นการแสดงจุดยืนในสภา ไม่ใช่การขาดของคนใดคนหนึ่ง เรานับว่าเป็นกรณีนี้เมื่อพรรคที่มี ส.ส. ตั้งแต่ 3 คน มีเกินครึ่งไม่ลงมติในมติเดียวกัน</li></ul><p class="mp">ทั้งสองอย่างยังแสดงเป็นตัวเลขแยกในหน้าพรรคทุกครั้ง ส่วนหน้าเทียบทุกพรรคเรียงตามจำนวนที่นั่ง ไม่ใช่การจัดอันดับ เดือนที่มีการลงมติน้อยกว่า '+FEW+' ครั้งจะเขียนว่า ข้อมูลน้อย</p></div>' +
+      '<div class="card"><p class="sec-h" style="font-size:18px">กราฟ 5 ด้านของ ส.ส.</p><p class="mp">ทุกคนใช้ 5 ด้านเดียวกัน เรียงลำดับเดียวกัน ด้านที่ยังไม่ได้นำเข้าข้อมูลเขียนว่า รอข้อมูล และไม่วาดรูปทรง</p><ol class="mlist">'+AXES.map(function(x){ return '<li>'+B(x.n)+' · '+x.d+'</li>'; }).join('')+'</ol>' +
+        '<p class="mp">ด้านที่ 1 เป็นร้อยละจริง ด้านที่ 2, 3, 5 หารด้วยจำนวนเดือนที่ดำรงตำแหน่งก่อนเทียบ คนที่เข้ารับตำแหน่งกลางสมัยจึงเทียบได้อย่างเป็นธรรม ด้านที่ 4 ให้แต้มตามคณะกรรมาธิการที่เป็นสมาชิก คณะละ 1 แต้ม ถ้าเป็นประธาน รองประธาน หรือเลขานุการได้ 2 แต้ม ด้านนี้ไม่หารด้วยเดือน เพราะการเป็นสมาชิกไม่สะสมเพิ่มตามเวลา และจะเปลี่ยนไปนับการเข้าประชุมกรรมาธิการทันทีที่สภาเผยแพร่ข้อมูลนี้ จากนั้นทั้ง 4 ด้านแปลงเป็น'+B('เปอร์เซ็นไทล์')+' คือร้อยละของ ส.ส. ทั้งสภาที่ทำได้น้อยกว่าหรือเท่ากับคนนี้ (คนที่ได้เท่ากันนับเป็นครึ่งหนึ่ง)</p>' +
+        '<p class="mp">กราฟของ ส.ส. มีสามชั้น: พื้นทึบคือ ส.ส. คนนี้ เส้นประคือค่ากลางของพรรค เส้นจุดคือค่ากลางทั้งสภา รูปทรงไม่ใช่คะแนนรวม และไม่มีการรวมพื้นที่เป็นคะแนน</p>' +
+        '<p class="mp">'+B('ใช้ค่ากลาง ไม่ใช่ค่าเฉลี่ย')+' เพราะถ้ามี ส.ส. คนเดียวที่ตัวเลขสูงมาก ค่าเฉลี่ยจะถูกดึงขึ้น ทำให้คนอื่นดูต่ำเกินจริง ค่ากลางของพรรคไม่นับประธาน/รองประธานสภาและรัฐมนตรี</p>' +
+        '<p class="mp">คำเทียบรายด้านใช้แค่ สูงกว่า ต่ำกว่า หรือใกล้เคียง (ต่างกันไม่เกิน 5) ไม่ตัดสินว่าดีหรือไม่ดี</p>' +
+        '<p class="mp">'+B('กติกาสำหรับรัฐมนตรี')+' รัฐมนตรีไม่ตั้งกระทู้และไม่นั่งในกรรมาธิการตามปกติ ด้านที่ 3–4 จึงเป็นสีเทาและเขียนว่า ไม่เทียบ ไม่แสดงเป็นค่าต่ำ และไม่นำรัฐมนตรีไปรวมในกลุ่มเทียบของสองด้านนี้ รวมถึงตอนคิดค่ากลางของพรรคและของทั้งสภา</p>' +
+        '<p class="mp">การลงมติต่างจากเสียงข้างมากของพรรคไม่อยู่ในกราฟ เพราะไม่ใช่เรื่องดีหรือไม่ดี จึงแสดงเป็นข้อเท็จจริงแยกไว้</p></div>' +
+      '<div class="card"><p class="sec-h" style="font-size:18px">ข้อเท็จจริงที่ไม่คิดคะแนน</p><p class="mp">การยื่นบัญชีทรัพย์สินตรงเวลาหรือไม่ ประวัติย้ายพรรค ตำแหน่งรัฐมนตรี และการโหวตเลือกนายกรัฐมนตรีของแต่ละพรรค แสดงเป็นข้อเท็จจริงเท่านั้น และไม่มีผลต่อคะแนนใดๆ</p></div>' +
+      '<div class="card"><p class="sec-h" style="font-size:18px">เรื่องทางกฎหมายและจริยธรรม</p><p class="mp">แสดงแยกจากผลงาน ไม่หักคะแนน และทุกเรื่องต้องระบุหน่วยงาน ขั้นตอนล่าสุด วันที่ และบอกว่าถึงที่สุดแล้วหรือยัง</p>'+lv+'<p class="presume">'+PRESUME+'</p></div>' +
+      '<div class="card"><p class="sec-h" style="font-size:18px">แหล่งข้อมูล</p><ul class="mlist"><li>เอกสารนโยบายที่พรรคยื่นต่อ กกต.</li><li>คำแถลงนโยบาย มติคณะรัฐมนตรี และราชกิจจานุเบกษา</li><li>รายงานการเบิกจ่ายของกรมบัญชีกลาง</li><li>บันทึกการประชุมสภาผู้แทนราษฎร</li><li>ประกาศของ ป.ป.ช. กกต. และศาล และข้อมูลบัญชีทรัพย์สินจากเว็บไซต์ ป.ป.ช.</li><li>ข้อมูลการลงมติจาก Politigraph โดย WeVis (CC BY-NC 4.0)</li></ul></div>' +
+      '<div class="card"><p class="sec-h" style="font-size:18px">สิทธิ์ชี้แจงและการแก้ไข</p><p class="mp">ทุกพรรคและ ส.ส. ส่งคำชี้แจงได้ เราแสดงไว้ข้างข้อมูลโดยไม่ตัดทอน ถ้าพบข้อมูลผิด แตะ “แจ้งข้อผิดพลาดทางอีเมล” ในหน้าพรรค หน้า ส.ส. หรือหน้าคำสัญญา ระบบจะเปิดอีเมลถึง '+REPORT_TO+' ให้คุณส่งเอง เราตรวจทุกเรื่องกับเอกสารต้นฉบับในรอบอัปเดตถัดไป</p></div>' +
+    '</div>' +
+    foot() +
+  '</div>';
+}
+function notFound(){
+  document.getElementById('s-party').innerHTML = bar(true) + '<div class="scroll"><div class="card empty" style="margin-top:20px"><p class="note-t">ไม่พบหน้านี้</p><p>ลิงก์อาจเก่าหรือพิมพ์ผิด ลองกลับไปหน้าแรกแล้วค้นหาอีกครั้ง</p></div>'+foot()+'</div>';
+  return 'party';
+}
+
+/* =====================================================================
+   SHEETS + TOAST
+   ===================================================================== */
+var sheetWrap = document.getElementById('sheetWrap'), sheet = document.getElementById('sheet');
+function openSheet(html){ sheet.innerHTML = '<div class="grab" aria-hidden="true"></div>' + html; sheetWrap.classList.add('on'); sheetWrap.setAttribute('aria-hidden', 'false'); var b = sheet.querySelector('button,a'); if (b) b.focus({preventScroll:true}); }
+function closeSheet(){ sheetWrap.classList.remove('on'); sheetWrap.setAttribute('aria-hidden', 'true'); }
+document.getElementById('scrim').addEventListener('click', closeSheet);
+function evidenceSheet(k){
+  var e = EV[k]; if (!e) return;
+  var u = safeUrl(e.url);
+  openSheet((e.sample ? sampleStripe() : '') +
+    '<p class="eyebrow" style="margin:0">หลักฐาน</p><h3>'+esc(e.label)+'</h3><p class="sval">'+esc(e.value)+'</p>' +
+    '<dl class="kv" style="margin-bottom:12px"><dt>แหล่งที่มา</dt><dd>'+esc(e.src || '—')+'</dd><dt>อ้างอิง</dt><dd>'+esc(e.ref || '—')+'</dd>'+(e.sample ? '' : '<dt>ดึงข้อมูลล่าสุด</dt><dd>'+esc((SRC && thDate(SRC.fetchedAt)) || 'ไม่ระบุ')+'</dd>')+'</dl>' +
+    (e.note ? '<p class="mp" style="margin-bottom:14px">'+esc(e.note)+'</p>' : '') +
+    (u ? '<a class="btn" style="text-decoration:none" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">เปิดเอกสารต้นฉบับ</a>'
+      : e.sample ? '<button class="btn" data-toast="นี่คือข้อมูลสมมติ จึงไม่มีเอกสารจริงให้เปิด">เปิดเอกสารต้นฉบับ</button>' : '') +
+    '<div style="text-align:center;margin-top:6px"><button class="tbtn" data-close>ปิด</button></div>');
+}
+function weightsSheet(){
+  var vals = SP.dims.map(function(d){ return d.v; });
+  var html = '<p class="eyebrow" style="margin:0">พรรคตัวอย่าง · ข้อมูลสมมติ</p><h3>ตั้งน้ำหนักเอง</h3><p class="lead" style="font-size:15px">เลื่อนตามที่คุณให้ความสำคัญ คะแนนนี้เป็นของคุณ ไม่ใช่คะแนนจากสมุดพก</p>';
+  GOV_DIMS.forEach(function(d, i){ html += '<div class="range"><label for="w'+i+'">'+d.n+' <span id="wv'+i+'">20</span></label><input type="range" id="w'+i+'" min="0" max="100" step="5" value="20" data-w></div>'; });
+  html += '<div class="result"><span style="font-weight:600">คะแนนรวมตามน้ำหนักของคุณ</span><span class="big" id="wres">—</span></div><button class="btn" data-close>เสร็จแล้ว</button>';
+  openSheet(html);
+  function calc(){
+    var sw = 0, s = 0;
+    for (var i = 0; i < vals.length; i++) { var v = +document.getElementById('w'+i).value; document.getElementById('wv'+i).textContent = v; sw += v; s += v * vals[i]; }
+    document.getElementById('wres').textContent = sw ? Math.round(s / sw) : '—';
+  }
+  sheet.querySelectorAll('[data-w]').forEach(function(r){ r.addEventListener('input', calc); });
+  calc();
+}
+function legendSheet(){
+  var h = '<h3>ความหมายของแต่ละระดับ</h3><p class="lead" style="font-size:15px">ทุกระดับแสดงแยกจากผลงาน และไม่หักคะแนน</p>';
+  [1,2,3,4,0].forEach(function(i){ h += '<div style="padding:10px 0;border-top:1px solid var(--hair)">'+fpill(i)+'<p class="mp" style="margin-top:6px">'+FLV[i].d+'</p></div>'; });
+  h += '<p class="presume">'+PRESUME+'</p><div style="margin-top:12px"><button class="btn" data-close>เข้าใจแล้ว</button></div>';
+  openSheet(h);
+}
+var toastEl = document.getElementById('toast'), tt;
+function toast(msg){ toastEl.textContent = msg; toastEl.classList.add('show'); clearTimeout(tt); tt = setTimeout(function(){ toastEl.classList.remove('show'); }, 3200); }
+
+/* =====================================================================
+   HASH ROUTER   #party/<name> · #mp/<id> · #promise/<party>/<id> · #att
+   #house · #trend · #method · #sample/party · #sample/mp/<id> · #sample/promise/<i>
+   ===================================================================== */
+var depth = 0, fresh = false, scrollMem = {}, homeBuilt = false;
+function parseHash(){ var h = location.hash.replace(/^#\/?/, ''); if (!h) return []; return h.split('/').map(function(s){ try { return decodeURIComponent(s); } catch (e) { return s; } }); }
+function route(){
+  closeSheet();
+  var r = parseHash(), screen = 'home', tab = 'home';
+  if (r[0] === 'party' && r[1] != null) { screen = 'party'; renderParty(r[1]); }
+  else if (r[0] === 'promise' && r.length >= 3) { screen = 'promise'; if (renderPromise(r[1], r[2]) === 'party') screen = 'party'; }
+  else if (r[0] === 'mp' && r[1] != null) { screen = 'mp'; if (renderMP(r[1]) === 'party') screen = 'party'; }
+  else if (r[0] === 'att') { screen = 'att'; renderAtt(); }
+  else if (r[0] === 'house') { screen = 'house'; renderHouse(); }
+  else if (r[0] === 'trend') { screen = 'month'; tab = 'month'; renderTrend(); }
+  else if (r[0] === 'method') { screen = 'method'; tab = 'method'; renderMethod(); }
+  else if (r[0] === 'sample' && r[1] === 'party') { screen = 'party'; renderSampleParty(); }
+  else if (r[0] === 'sample' && r[1] === 'mp') { screen = 'mp'; if (renderSampleMP(r[2]) === 'party') screen = 'party'; }
+  else if (r[0] === 'sample' && r[1] === 'promise') { screen = 'promise'; if (renderSamplePromise(r[2]) === 'party') screen = 'party'; }
+  else if (!homeBuilt) { renderHome(); homeBuilt = true; }
+  document.querySelectorAll('.screen').forEach(function(el){ el.classList.toggle('on', el.id === 's-' + screen); });
+  document.querySelectorAll('.tab').forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.tab === tab)); });
+  var sc = document.querySelector('#s-' + screen + ' .scroll');
+  if (sc) sc.scrollTop = (!fresh && scrollMem[location.hash] != null) ? scrollMem[location.hash] : 0;
+  fresh = false;
+}
+function rememberScroll(){ var sc = document.querySelector('.screen.on .scroll'); if (sc) scrollMem[location.hash] = sc.scrollTop; }
+function go(hash){ rememberScroll(); fresh = true; depth++; if (location.hash === '#' + hash) route(); else location.hash = hash; }
+document.addEventListener('click', function(e){
+  var t;
+  if ((t = e.target.closest('[data-close]'))) closeSheet();
+  if ((t = e.target.closest('[data-toast]'))) { toast(t.dataset.toast); return; }
+  if ((t = e.target.closest('[data-ev]'))) { evidenceSheet(t.dataset.ev); return; }
+  if ((t = e.target.closest('[data-sheet]'))) { if (t.dataset.sheet === 'weights') weightsSheet(); else legendSheet(); return; }
+  if ((t = e.target.closest('[data-trend]'))) { trendMode = t.dataset.trend === 'year' ? 'year' : 'month'; var s0 = document.querySelector('#s-month .scroll'), y = s0 ? s0.scrollTop : 0; renderTrend(); var s1 = document.querySelector('#s-month .scroll'); if (s1) s1.scrollTop = y; return; }
+  if ((t = e.target.closest('[data-filter]'))) { flagFilter = t.dataset.filter; var sc = document.getElementById('mpScroll'), yy = sc ? sc.scrollTop : 0; renderSampleMP(t.dataset.mp); var sc2 = document.getElementById('mpScroll'); if (sc2) sc2.scrollTop = yy; return; }
+  if ((t = e.target.closest('[data-scroll]'))) { var el = document.getElementById(t.dataset.scroll); if (el) el.scrollIntoView({behavior:'smooth', block:'start'}); return; }
+  if ((t = e.target.closest('[data-go]'))) { if (/^sample\/mp\//.test(t.dataset.go)) flagFilter = 'ทั้งหมด'; go(t.dataset.go); return; }
+  if ((t = e.target.closest('[data-back]'))) { rememberScroll(); if (depth > 0) { depth--; history.back(); } else { location.hash = ''; } return; }
+  if ((t = e.target.closest('[data-tab]')) || (t = e.target.closest('[data-tab-go]'))) {
+    var id = t.dataset.tab || t.dataset.tabGo; rememberScroll(); fresh = true; depth = 0;
+    var h = id === 'month' ? 'trend' : id === 'method' ? 'method' : '';
+    if (location.hash.replace(/^#/, '') === h) route(); else location.hash = h;
+    return;
+  }
+});
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeSheet(); });
+window.addEventListener('hashchange', route);
+
+if (FIX) document.getElementById('fxBanner').hidden = false;
+renderHome(); homeBuilt = true;
+route();
+})();
+</script>
+</body>
+</html>
