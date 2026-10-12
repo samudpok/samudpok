@@ -1,0 +1,13 @@
+{
+  "name": "samudpok",
+  "private": true,
+  "description": "สมุดพก ส.ส. — ติดตามคำสัญญาและการทำหน้าที่ในสภา (ไม่แสวงหากำไร)",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test scripts/compute.test.mjs",
+    "fetch": "node scripts/fetch.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/make-fixture.mjs && node scripts/build.mjs --fixture"
+  }
+}
