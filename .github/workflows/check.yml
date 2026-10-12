@@ -1,0 +1,23 @@
+# ตรวจทุก Pull Request: สูตรต้องผ่านการทดสอบ และเว็บต้องบิลด์ได้
+name: check
+on:
+  pull_request: {}
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - run: node --test scripts/compute.test.mjs
+      - run: node scripts/build.mjs
+      - name: ห้ามมีข้อมูลทดสอบในเว็บจริง
+        run: |
+          if grep -qF '"fixture":true' dist/index.html || grep -qF 'นายสมมติ ทดสอบ' dist/index.html; then
+            echo "พบข้อมูลทดสอบในเว็บจริง"; exit 1
+          fi

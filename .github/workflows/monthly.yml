@@ -1,0 +1,69 @@
+# ดึงข้อมูลการลงมติจาก Politigraph ทุกวันที่ 1 ของเดือน แล้วเปิด Pull Request ให้ผู้ดูแลตรวจก่อนขึ้นเว็บ
+# ไม่มีรหัสลับใด ๆ: งานดึงข้อมูลมีสิทธิ์อ่านอย่างเดียว ส่วนงานเปิด PR ไม่แตะข้อมูลภายนอก
+name: monthly-data
+on:
+  schedule:
+    - cron: '17 2 1 * *'   # วันที่ 1 เวลา 09:17 น. เวลาไทย
+  workflow_dispatch: {}
+permissions: {}
+concurrency:
+  group: monthly-data
+  cancel-in-progress: false
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: ทดสอบสูตร
+        run: node --test scripts/compute.test.mjs
+      - name: ดึงและคำนวณ (มีด่านตรวจข้อมูลผิดปกติ)
+        run: node scripts/fetch.mjs
+      - name: ทดลองบิลด์เว็บ
+        run: node scripts/build.mjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: monthly-data
+          path: |
+            data/participation.json
+            data/history/
+          retention-days: 7
+          if-no-files-found: error
+
+  pull-request:
+    needs: fetch
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: monthly-data
+          path: data
+      - name: เปิด Pull Request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          if [ -z "$(git status --porcelain -- data)" ]; then echo "ไม่มีข้อมูลใหม่"; exit 0; fi
+          month=$(date -u +%Y-%m)
+          branch="data/$month-${GITHUB_RUN_ID}"
+          git config user.name "samudpok-bot"
+          git config user.email "samudpokss@gmail.com"
+          git checkout -b "$branch"
+          git add data/participation.json data/history
+          summary=$(node -e 'const r=require("./data/participation.json");const n=(x)=>Number.isFinite(x)?x:"-";console.log(`มติ ${n(r.eventCount)} ครั้ง · ทั้งสภา ${n(r.houseRate)}% · ค่ากลาง สส. ${n(r.houseMedianMpRate)}% · จับคู่บุคคลไม่ได้ ${n(r.unmatched.votes)} คะแนน`)')
+          git commit -m "ข้อมูลประจำเดือน $month" -m "$summary"
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git" "$branch"
+          gh pr create --base main --head "$branch" --title "ข้อมูลประจำเดือน $month" --body "$summary
+
+          ตรวจตัวเลข แล้วกด Merge เพื่อขึ้นเว็บ หากผิดปกติให้ปิด PR นี้ได้เลย"
